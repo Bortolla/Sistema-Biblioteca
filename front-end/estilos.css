@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Flexbox */
+
+h1#titulo {
+    text-align: center;
+}
+
+main#flex-container {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(245, 229, 201, 0.6);
+}
+
+#coluna-esquerda {
+    width: 45%;
+    height: 100vh;
+    background: url(./imagens/biblioteca.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#coluna-direita {
+    width: 55%;
+    height: 100vh;  
+}
+
+/* Estilizando o Formulario de Login */
+
+h1#login {
+    margin-top: 30px;
+    text-align: center;
+}
+.container {
+    margin: 15% 0 0 5%;
+    padding: 5%;
+    width: 90%;
+    background-color: #2C2F33;
+    border-radius: 30px;
+}    
+
+input[type=text] {
+    outline: none;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 5px;
+    display: block;
+    border: 2px solid #2C2F33;
+    background: #f1f1f1;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+#login-btn {
+    outline: none;
+    padding: 15px 30px;
+    background-color: #FFE4B5;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: padding .6s;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#login-btn:hover {
+    cursor: pointer;
+    padding: 18px 40px;
+    box-shadow: 2px 2px 2px #535a61;
+}
+
+#login-btn:active {
+    opacity: 0.8;
+}
+
+label {
+    color: white;
+    font-weight: bold;
+}
+
+.msg-erro {
+    color: red;
+    opacity: 0;
+}
+
+#usuario-container {
+    margin-bottom: 50px;
+}

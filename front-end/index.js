@@ -11,7 +11,7 @@ const msgErro = document.getElementsByClassName('msg-erro');
 function validarDados() {
     if (nomeInput.value !== nomeCorreto) {
         nomeValor = false; // diferente do correto
-        nomeInput.style.border = '2px solid red'; 
+        nomeInput.style.borderBottom = '2px solid var(--msgerror)'; 
         msgErro[0].style.opacity = '1';
     } else { 
         nomeValor = true; // igual o correto
@@ -19,7 +19,7 @@ function validarDados() {
     
     if (senhaInput.value !== senhaCorreta) {
         senhaValor = false; // diferente do correto
-        senhaInput.style.border = '2px solid red';
+        senhaInput.style.borderBottom = '2px solid var(--msgerror)';
         msgErro[1].style.opacity = '1';
     } else {
         senhaValor = true; // igual o correto

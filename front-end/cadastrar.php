@@ -32,28 +32,6 @@
             $application_failed = NULL;
             $apllication_successful = NULL;
 
-            #this block is validating the id input
-            if (empty($_id)){
-                $error_id = '*Campo obrigatorio';
-            }
-            elseif (!preg_match('/^[0-9]+$/', $_id)){
-                $error_id = '*O registro do aluno deve 
-                conter apenas numeros';
-            }
-            elseif{
-                #CHECK IF ID ALREADY EXISTS
-            }
-
-            #this block is validating the email input
-            elseif (empty($_email)){
-                $error_email = '*Campo obrigatorio';
-            }
-            elseif (!filter_var($_email, FILTER_VALIDATE_EMAIL)){
-                $error_email = '*O email informado nao e valido';
-            }
-            elseif{
-                #CHECK IF EMAIL ALREADY EXISTS
-            }
 
             #this block is validating the firstname input
             if (empty($_firstname)){
@@ -71,6 +49,17 @@
                 $error_lastname = '*O nome deve ser composto por letras';
             }
 
+            #this block is validating the email input
+            elseif (empty($_email)){
+                $error_email = '*Campo obrigatorio';
+            }
+            elseif (!filter_var($_email, FILTER_VALIDATE_EMAIL)){
+                $error_email = '*O email informado nao e valido';
+            }
+            elseif{
+                #CHECK IF EMAIL ALREADY EXISTS
+            }
+
             #this block is validating the phone input
             elseif (empty($_phone)){
                 $error_phone = '*Campo obrigatorio';
@@ -82,6 +71,18 @@
             #this block is validating the class input
             elseif (empty($_class)){
                 $error_class = '*Campo obrigatorio';
+            }
+
+            #this block is validating the id input
+            elseif (empty($_id)){
+                $error_id = '*Campo obrigatorio';
+            }
+            elseif (!preg_match('/^[0-9]+$/', $_id)){
+                $error_id = '*O registro do aluno deve 
+                conter apenas numeros';
+            }
+            elseif{
+                #CHECK IF ID ALREADY EXISTS
             }
 
             #this block is validating the password input

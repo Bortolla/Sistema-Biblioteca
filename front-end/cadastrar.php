@@ -12,12 +12,7 @@
 
 <body>
     <?php
-
-        if (mysqli_connect_errno()){
-            $connection_error = "Nao foi possivel se conectar 
-            ao servidor. Tente novamente mais tarde";
-        }
-        elseif ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             #variables getting the values from the form
             $_firstname = clean_data($_POST['firstname']);
             $_lastname = clean_data($_POST['lastname']);
@@ -41,6 +36,9 @@
                 $error_firstname = '*O nome deve ser 
                 composto por letras';
             }
+            elseif (strlen($_firstname) > 18){
+                $error_firstname = '*Tamanho muito longo';
+            }
             
             #this block is validating the lastname input
             elseif (empty($_lastname)){
@@ -49,6 +47,9 @@
             elseif (!preg_match('/^[a-zA-Z ]+$/', $_lastname)){
                 $error_lastname = '*O nome deve ser 
                 composto por letras';
+            }
+            elseif (strlen($_lastname) > 56){
+                $error_lastname = '*Tamanho muito longo';
             }
 
             #this block is validating the email input
@@ -62,6 +63,10 @@
                 $error_email = '*O email informado ja esta 
                 sendo utilizado';
             }
+            elseif (strlen($_email) > 56){
+                $error_email = '*Tamanho muito longo';
+            }
+            
 
             #this block is validating the phone input
             elseif (empty($_phone)){
@@ -76,6 +81,9 @@
             elseif (empty($_class)){
                 $error_class = '*Campo obrigatorio';
             }
+            elseif (strlen($_class) > 20){
+                $error_class = '*Tamanho muito longo';
+            }
 
             #this block is validating the id input
             elseif (empty($_id)){
@@ -89,11 +97,17 @@
                 $error_id = '*O registro informado 
                 ja esta sendo utilizado';
             }
+            elseif (strlen($_id) > 20){
+                $error_id = '*Tamanho muito longo';
+            }
 
             #this block is validating the password input
             elseif (strlen($_password) < 8){
                 $error_password = '*A senha 
                 deve conter pelo menos 8 digitos';
+            }
+            elseif (strlen($_password) > 55){
+                $error_password = '*Tamanho muito longo';
             }
 
             else{
@@ -106,10 +120,21 @@
                 mysqli_stmt_bind_param($stmt, 'sssssss', $_firstname, 
                 $_lastname, $_class, $_phone, $_email, $_id, $_password); #insert the variables into the statement
 
-                mysqli_stmt_execute($stmt);
+                if (!mysqli_stmt_execute($stmt)){
+                    $application_failed = "Erro ao enviar os dados. Tente novamente.";
+                }
+                else{
+                    $apllication_successful = "Cadastro criado com sucesso.";
 
+                    $_firstname = NULL;
+                    $_lastname = NULL;
+                    $_email = NULL;
+                    $_phone = NULL;
+                    $_class = NULL;
+                    $_id = NULL;
+                    $_password = NULL;
+                }
 
-                
             }
 
             

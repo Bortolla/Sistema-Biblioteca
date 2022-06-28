@@ -38,7 +38,8 @@
                 $error_firstname = '*Campo obrigatorio';
             }
             elseif (!preg_match('/^[a-zA-Z ]+$/', $_firstname)){
-                $error_firstname = '*O nome deve ser composto por letras';
+                $error_firstname = '*O nome deve ser 
+                composto por letras';
             }
             
             #this block is validating the lastname input
@@ -46,7 +47,8 @@
                 $error_lastname = '*Campo obrigatorio';
             }
             elseif (!preg_match('/^[a-zA-Z ]+$/', $_lastname)){
-                $error_lastname = '*O nome deve ser composto por letras';
+                $error_lastname = '*O nome deve ser 
+                composto por letras';
             }
 
             #this block is validating the email input
@@ -56,8 +58,9 @@
             elseif (!filter_var($_email, FILTER_VALIDATE_EMAIL)){
                 $error_email = '*O email informado nao e valido';
             }
-            elseif{
-                #CHECK IF EMAIL ALREADY EXISTS
+            elseif (email_exists($__db_connect, $_email)){
+                $error_email = '*O email informado ja esta 
+                sendo utilizado';
             }
 
             #this block is validating the phone input
@@ -65,7 +68,8 @@
                 $error_phone = '*Campo obrigatorio';
             }
             elseif (!preg_match('/^[0-9]?[0-9]{10}$/', $_phone)){
-                $error_phone = '*O telefone/celular informado e invalido';
+                $error_phone = '*O telefone/celular informado 
+                e invalido';
             }
 
             #this block is validating the class input
@@ -81,18 +85,31 @@
                 $error_id = '*O registro do aluno deve 
                 conter apenas numeros';
             }
-            elseif{
-                #CHECK IF ID ALREADY EXISTS
+            elseif (id_exists($__db_connect, $_id)){
+                $error_id = '*O registro informado 
+                ja esta sendo utilizado';
             }
 
             #this block is validating the password input
             elseif (strlen($_password) < 8){
-                $error_password = '*A senha deve conter pelo menos
-                8 digitos';
+                $error_password = '*A senha 
+                deve conter pelo menos 8 digitos';
             }
 
             else{
-                #SAVE DATA IN DATABASE
+                $sql = "INSERT INTO account_info (firstname, lastname, 
+                class, phone, email, id, password) VALUES (?,?,?,?,?,?,?)"; #Template of the request with placeholders 
+                                                                            #that will receive values later on
+
+                $stmt = mysqli_stmt_init($__db_connect); #Creates a prepared statement
+                mysqli_stmt_prepare($stmt, $sql); #Prepares the statement, checks if everything is right
+                mysqli_stmt_bind_param($stmt, 'sssssss', $_firstname, 
+                $_lastname, $_class, $_phone, $_email, $_id, $_password); #insert the variables into the statement
+
+                mysqli_stmt_execute($stmt);
+
+
+                
             }
 
             

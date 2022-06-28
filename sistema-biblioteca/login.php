@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <link rel="shortcut icon" type="image/png" href="./imagens/favicon.png">
-        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="css/estilos.css">
         <title>Login</title>
     </head>
 
@@ -45,5 +45,5 @@
 
     </body>
 
-    <script src="index.js"></script>
+    
 </html>

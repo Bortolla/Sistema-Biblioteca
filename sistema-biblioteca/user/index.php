@@ -1,7 +1,7 @@
 <?php include '../includes/db_connection.inc.php' ?> <!-- CONNECTION TO DATABASE-->
 <?php include '../includes/session.inc.php' ?> <!-- STARTS A SESSION-->
 <?php include '../includes/functions.inc.php' ?> <!-- PHP FUNCTIONS -->
-<?php include '../includes/check_if_admin.inc.php' ?> <!-- CHECKS IF WHO IS ACCESSING THIS FILE IS admin-->
+<?php include '../includes/check_if_user.inc.php' ?> <!-- CHECKS IF WHO IS ACCESSING THIS FILE IS user-->
 <?php include '../includes/logout.inc.php' ?> <!-- LOGOUT SCRIPT -->
 
 
@@ -14,7 +14,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>ACESSO DE ADMIN</h1>
+    <h1>ACESSO DE ESTUDANTE</h1>
     <a href="<?php echo $_SERVER['PHP_SELF'].'?logout=1';?>">SAIR</a>
 </body>
 </html>

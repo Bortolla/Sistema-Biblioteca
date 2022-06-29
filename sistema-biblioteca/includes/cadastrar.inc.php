@@ -1,7 +1,10 @@
 <?php
+    #CHECKING IF THE USER TRYING TO ACCESS THE SIGN ->
+    #->UP PAGE IS ALREADY LOGGED. IF SO, IT REDIRECTS ->
+    #->THEM TO THE INDEX OF THEIR PATH
     if ($_SESSION['logged']){
         if ($_SESSION['type'] == 'user'){
-            header('Location: estudante/index.php');
+            header('Location: user/index.php');
         }
         elseif ($_SESSION['type'] == 'admin'){
             header('Location: admin/index.php');
@@ -18,8 +21,8 @@
         $_password = clean_data($_POST['password']);
         $_type = 'user';
         
-        #variables to show if the application 
-        #was successful or if an error occurred
+        #variables to show if the application ->
+        #->was successful or if an error occurred
         $application_failed = NULL;
         $apllication_successful = NULL;
 
@@ -107,8 +110,8 @@
 
         else{
             $sql = "INSERT INTO account_info (firstname, lastname, 
-            class, phone, email, id, password, type) VALUES (?,?,?,?,?,?,?,?)"; #Template of the request with placeholders 
-                                                                        #that will receive values later on
+            class, phone, email, id, password, type) VALUES (?,?,?,?,?,?,?,?)"; #Template of the request with placeholders ->
+                                                                        #->that will receive values later on
 
             $stmt = mysqli_stmt_init($__db_connect); #Creates a prepared statement
             mysqli_stmt_prepare($stmt, $sql); #Prepares the statement, checks if everything is right
@@ -121,6 +124,8 @@
             else{
                 $apllication_successful = "Cadastro criado com sucesso.";
 
+                #IF THE OPERATION IS SUCCESSFULL, THE VARIABLES ARE CLEANED UP ->
+                #->SO THERE IS NOTHING IN THE INPUT BOXES
                 $_firstname = NULL;
                 $_lastname = NULL;
                 $_email = NULL;

@@ -1,7 +1,7 @@
-<?php include 'includes/db_connection.inc.php' ?>
-<?php include 'includes/session.inc.php' ?>
-<?php include 'includes/functions.inc.php' ?>
-<?php include 'includes/cadastrar.inc.php' ?>
+<?php include 'includes/db_connection.inc.php' ?> <!-- CONNECTION TO DATABASE-->
+<?php include 'includes/session.inc.php' ?> <!-- STARTS A SESSION -->
+<?php include 'includes/functions.inc.php' ?> <!-- PHP FUNCTIONS -->
+<?php include 'includes/cadastrar.inc.php' ?> <!-- THIS PAGE'S CODE -->
 
 <!DOCTYPE html>
 <html lang="pt-BR">

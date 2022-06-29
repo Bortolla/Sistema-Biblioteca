@@ -1,6 +1,6 @@
 <?php
 
-    # Function to clean the data that comes from an input   
+    #FUNCTION TO CLEAN THE DATA THAT COMES FROM AN INPUT
     function clean_data($data){ 
             $clean_data = trim($data);
             $clean_data = htmlspecialchars($clean_data);
@@ -8,6 +8,9 @@
             return $clean_data;
     }
 
+    #CHECKS IF AN EMAIL EXISTS IN THE DATA BASE;
+    #UTILIZES PREPARED STATEMENTS TO MAKE THE MYSQLI REQUEST.
+    #THE PARAMETERS ARE THE DB CONNECTION AND THE EMAIL
     function email_exists($server_connection, $email){
         $sql = "SELECT email FROM account_info WHERE email=?";
         $stmt = mysqli_stmt_init($server_connection);
@@ -24,6 +27,9 @@
         }
     }
 
+    #CHECKS IF AN ID EXISTS IN THE DATA BASE;
+    #UTILIZES PREPARED STATEMENTS TO MAKE THE MYSQLI REQUEST.
+    #THE PARAMETERS ARE THE DB CONNECTION AND THE EMAIL.
     function id_exists($server_connection, $id){
         $sql = "SELECT id FROM account_info WHERE id=?";
         $stmt = mysqli_stmt_init($server_connection);
@@ -40,6 +46,12 @@
         }
     }
 
+    #CHECKS IF THERE IS AN ACCOUNT WITH THE INFORMED EMAIL AND PASSWORD AND ->
+    #->IF THERE IS, IT MEANS THAT THE LOGIN INFORMATION WAS CORRECT AND IT RETURNS ->
+    #->THE TYPE OF THE ACCOUNT TO BE PUT IN THE $_SESSION VARIABLE.
+    #IF NO MATCH IS FOUND, IT RETURNS FALSE.
+    #UTILIZES PREPARED STATEMENTS TO MAKE THE MYSQLI REQUEST.
+    #PARAMETERS ARE THE DB CONNECTION, EMAIL AND PASSWORD.
     function check_login($server_connection, $email, $password){
         $sql = "SELECT type FROM account_info WHERE email=? and password=?";
         $stmt = mysqli_stmt_init($server_connection);
@@ -58,5 +70,4 @@
         }
     }
        
-
 ?>

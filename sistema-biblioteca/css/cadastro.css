@@ -17,6 +17,12 @@
     height: 100vh;
     display: flex;
     font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: var(--background);
+}
+
+.cadastro-titulo {
+    padding-bottom: 10px;
 }
 
 .menulateral {
@@ -34,12 +40,15 @@
 }
 
 .form-cadastro {
+    padding: 2%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 500px;
-    height: 550px;
+    width: 600px;
+    height: 500px;
     align-items: center;
     justify-content: center;
+    background-color: var(--formulario);
+    border-radius: 5px;
 }
 
 .container {

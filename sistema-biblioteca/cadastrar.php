@@ -18,7 +18,7 @@
     </div>
     <div class="form">
 
-        <h1 class="titulo">Cadastro de Alunos</h1>
+        <h1 class="cadastro-titulo">Cadastro de Alunos</h1>
         <div><?php echo $connection_error;?></div> <!-- Div que mostra se nao foi possivel se
                                                     conectar ao servidor -->
         <form class="form-cadastro" action="cadastrar.php" method="post"> <!-- Formulario de cadastro para acessar o sistema -->

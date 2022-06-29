@@ -1,3 +1,8 @@
+<?php include 'includes/db_connection.inc.php' ?>
+<?php include 'includes/session.inc.php' ?>
+<?php include 'includes/functions.inc.php' ?>
+<?php include 'includes/login.inc.php' ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -20,20 +25,19 @@
                     <h1 id="login-title">Entrar no Sistema</h1>
                     <form action="index.php" method="post"> 
                         <div id="usuario-container">
-                            <label for="usuario">Usuário</label>
-                            <input type="text" placeholder="Digite seu nome de usuário" name="username" id="usuario">
-                            <span class="msg-erro">Usuário incorreto! Tente novamente.</span>
-                            <br>
+                            <label for="usuario">Email</label>
+                            <input type="text" placeholder="Digite seu email" name="email" id="usuario">
                         </div>
                         
                         <div id="senha-container">
                             <label for="senha">Senha</label>
                             <input type="text" placeholder="Digite sua senha" name="password" id="senha" class="input-grupo">
-                            <span class="msg-erro">Senha incorreta! Tente novamente.</span>
+                            <br>
+                            <div><?php echo $login_error; ?></div>
                             <br>
                         </div>
 
-                        <button type="button" id="login-btn">
+                        <button type="submit" id="login-btn">
                             Entrar
                         </button>
                     </form>

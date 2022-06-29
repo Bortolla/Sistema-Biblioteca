@@ -1,4 +1,5 @@
 <?php include 'includes/db_connection.inc.php' ?>
+<?php include 'includes/session.inc.php' ?>
 <?php include 'includes/functions.inc.php' ?>
 <?php include 'includes/cadastrar.inc.php' ?>
 

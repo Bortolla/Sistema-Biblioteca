@@ -1,5 +1,13 @@
 <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if ($_SESSION['logged']){
+        if ($_SESSION['type'] == 'user'){
+            header('Location: estudante/index.php');
+        }
+        elseif ($_SESSION['type'] == 'admin'){
+            header('Location: admin/index.php');
+        }
+    }
+    elseif ($_SERVER['REQUEST_METHOD'] == 'POST'){
         #variables getting the values from the form
         $_firstname = clean_data($_POST['firstname']);
         $_lastname = clean_data($_POST['lastname']);
@@ -8,6 +16,7 @@
         $_class = clean_data($_POST['class']);
         $_id = clean_data($_POST['id']);
         $_password = clean_data($_POST['password']);
+        $_type = 'user';
         
         #variables to show if the application 
         #was successful or if an error occurred
@@ -98,13 +107,13 @@
 
         else{
             $sql = "INSERT INTO account_info (firstname, lastname, 
-            class, phone, email, id, password) VALUES (?,?,?,?,?,?,?)"; #Template of the request with placeholders 
+            class, phone, email, id, password, type) VALUES (?,?,?,?,?,?,?,?)"; #Template of the request with placeholders 
                                                                         #that will receive values later on
 
             $stmt = mysqli_stmt_init($__db_connect); #Creates a prepared statement
             mysqli_stmt_prepare($stmt, $sql); #Prepares the statement, checks if everything is right
-            mysqli_stmt_bind_param($stmt, 'sssssss', $_firstname, 
-            $_lastname, $_class, $_phone, $_email, $_id, $_password); #insert the variables into the statement
+            mysqli_stmt_bind_param($stmt, 'ssssssss', $_firstname, 
+            $_lastname, $_class, $_phone, $_email, $_id, $_password, $_type); #insert the variables into the statement
 
             if (!mysqli_stmt_execute($stmt)){
                 $application_failed = "Erro ao enviar os dados. Tente novamente.";

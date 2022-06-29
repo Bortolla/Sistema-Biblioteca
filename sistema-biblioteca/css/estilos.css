@@ -39,7 +39,7 @@ main#flex-container {
 #coluna-esquerda {
     width: 45%;
     height: 100vh;
-    background: url(./imagens/biblioteca.jpg);
+    background: url(../imagens/biblioteca.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }

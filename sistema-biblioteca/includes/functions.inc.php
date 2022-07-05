@@ -69,5 +69,4 @@
             return $row['type'];
         }
     }
-       
-?>
+

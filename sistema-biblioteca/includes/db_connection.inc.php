@@ -1,5 +1,5 @@
 <?php
-    $__db_connect = mysqli_connect('localhost', 'root', 'root', 'library_system', '3306');
+    $__db_connect = mysqli_connect('localhost', 'root', '', 'library_system');
 
     if (mysqli_connect_errno()){
         $connection_error = "Nao foi possivel se conectar 
@@ -10,4 +10,3 @@
         exit($connection_error); 
                                 
     }
-?>

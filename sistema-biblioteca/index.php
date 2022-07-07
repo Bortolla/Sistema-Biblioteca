@@ -1,7 +1,22 @@
-<?php include 'includes/db_connection.inc.php' ?> <!-- CONNECTION TO DATABASE -->
-<?php include 'includes/session.inc.php' ?> <!-- STARTS A SESSION -->
-<?php include 'includes/functions.inc.php' ?> <!-- PHP FUNCTIONS -->
-<?php include 'includes/login.inc.php' ?> <!-- THIS PAGE'S CODE -->
+<?php 
+    $path = 'includes/db_connection.inc.php';
+    set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+?> <!-- CONNECTION TO DATABASE-->
+
+<?php 
+    $path = 'includes/session.inc.php';
+    set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+?> <!-- STARTS A SESSION -->
+
+<?php 
+    $path = 'includes/functions.inc.php';
+    set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+?> <!-- PHP FUNCTIONS -->
+
+<?php 
+    $path = 'includes/login.inc.php';
+    set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+?> <!-- THIS PAGE'S CODE -->
 
 
 <!DOCTYPE html>

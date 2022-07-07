@@ -14,15 +14,17 @@ body {
 }
 /* #856c4c #3e6c85 #8cb9d1 #ffe6c4 #f2c894 #bf826b*/
 :root {
-    --background: #bf826b;
-    --formulario: white;
+    --background: #bfbfbf;
+    --formulario: rgb(218, 217, 217);
     --title: black;
     --preto: black;
     --msgerror: rgb(102, 0, 0);
     --placeholder: black;
-    --btncolor: #bf826b;
-
+    --btncolor: #023535;
+    --menubackground: #023535;
+    --btnlettercolor: rgb(218, 217, 217);
 }
+
 /* Flexbox */
 
 h1#login-title {
@@ -112,6 +114,7 @@ input[type=text] {
     width: 25%;
     align-self: center;
     font-size: 17px;
+    color: var(--btnlettercolor);
 }
 
 #login-btn:hover {

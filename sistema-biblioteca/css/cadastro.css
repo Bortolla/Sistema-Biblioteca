@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
-    --background: #bf826b;
-    --formulario: white;
+    --background: #bfbfbf;
+    --formulario: rgb(218, 217, 217);
     --title: black;
     --preto: black;
     --msgerror: rgb(102, 0, 0);
     --placeholder: black;
-    --btncolor: #bf826b;
+    --btncolor: #023535;
+    --menubackground: #023535;
+    --btnlettercolor: rgb(218, 217, 217);
 
 }
 #tela_cadastro {
@@ -22,12 +24,63 @@
 }
 
 .cadastro-titulo {
-    padding-bottom: 10px;
+    font-weight: 500;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-self: center;
 }
 
-.menulateral {
+.menu{
     width: 20%;
-    background-color: gray;
+    background-color: var(--menubackground);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    margin: 0;
+    position: fixed;
+    color: var(--btnlettercolor)
+}
+.space{
+    width: 20%;
+    height: 100%;
+}
+menu-item{
+    padding: 20px 0;
+    width: 100%;
+    align-self: center;
+    text-align: center;
+}
+menu-item:hover{
+    background-color: darkgray;
+}
+
+menu-user-image{
+    border-radius: 50%;
+    align-self: center;
+    background-color: darkgray;
+    display: flex;
+    width: 95px;
+    height: 95px;
+    justify-content: center;
+}
+menu-user-image img{
+    width: 65%;
+    align-self: center;
+}
+
+menu-user-name{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+}
+menu-user-acess{
+    width: 100%;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 16px;
 }
 
 .form {
@@ -44,7 +97,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 600px;
-    height: 500px;
+    height: 520px;
     align-items: center;
     justify-content: center;
     background-color: var(--formulario);
@@ -78,6 +131,7 @@
     margin-top: 15px;
     width: 25%;    
     font-size: 17px;
+    color: var(--btnlettercolor);
 }
 
 .submit-btn:hover {

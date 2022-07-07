@@ -29,14 +29,43 @@
 </head>
 
 <body id="tela_cadastro">
-    <div class="menulateral">
-    </div>
+    <section class="space"></section>
+        <section class="menu">
+            <menu-user-image>
+                <img src="imagens/user.png">
+            </menu-user-image>
+            <menu-user-name>
+                Nome do usuário
+                <menu-user-acess>
+                    Administrador
+                <menu-user-acess>
+            </menu-user-name>
+            
+            <menu-item>
+                Item X
+            </menu-item>
+            <menu-item>
+                Item X
+            </menu-item>
+            <menu-item>
+                Item X
+            </menu-item>
+            <menu-item>
+                Item X
+            </menu-item>
+            <menu-item>
+                Item X
+            </menu-item>
+            <menu-item>
+                Item X
+            </menu-item>
+        </section>
     <div class="form">
 
-        <h1 class="cadastro-titulo">Cadastro de Alunos</h1>
         <div><?php echo $connection_error;?></div> <!-- Div que mostra se nao foi possivel se
                                                     conectar ao servidor -->
         <form class="form-cadastro" action="cadastrar.php" method="post"> <!-- Formulario de cadastro para acessar o sistema -->
+            <h1 class="cadastro-titulo">Cadastro de Alunos</h1>
             <div class="firstname container">
                 <label for="firstname">Nome:</label>
                 <input type="text" name="firstname" id="firstname" value="<?php echo $_firstname;?>"><br>

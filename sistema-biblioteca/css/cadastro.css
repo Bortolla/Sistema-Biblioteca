@@ -10,6 +10,7 @@
     --btncolor: #023535;
     --menubackground: #023535;
     --btnlettercolor: rgb(218, 217, 217);
+    --menuhover: #042929;
 
 }
 #tela_cadastro {
@@ -39,7 +40,7 @@
     height: 100vh;
     margin: 0;
     position: fixed;
-    color: var(--btnlettercolor)
+    color: rgb(218, 217, 217)
 }
 .space{
     width: 20%;
@@ -52,7 +53,7 @@ menu-item{
     text-align: center;
 }
 menu-item:hover{
-    background-color: darkgray;
+    background-color: var(--menuhover);
 }
 
 menu-user-image{

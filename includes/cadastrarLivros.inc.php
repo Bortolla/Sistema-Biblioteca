@@ -14,5 +14,3 @@ if (isset($_POST['save'])) {
             "INSERT INTO livros (titulo, autor, paginas, exemplares, categoria, descricao) VALUES ('$titulo', '$autor', '$numPaginas', '$numExemplares', '$categoria', '$descricao')"
         );
 }
-
-

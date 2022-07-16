@@ -24,7 +24,7 @@
         #variables to show if the application ->
         #->was successful or if an error occurred
         $application_failed = NULL;
-        $apllication_successful = NULL;
+        $application_successful = NULL;
 
 
         #this block is validating the firstname input
@@ -122,7 +122,7 @@
                 $application_failed = "Erro ao enviar os dados. Tente novamente.";
             }
             else{
-                $apllication_successful = "Cadastro criado com sucesso.";
+                $application_successful = "Cadastro criado com sucesso.";
 
                 #IF THE OPERATION IS SUCCESSFULL, THE VARIABLES ARE CLEANED UP ->
                 #->SO THERE IS NOTHING IN THE INPUT BOXES
@@ -139,3 +139,4 @@
 
         
     }
+     

@@ -3,7 +3,7 @@
 <?php include '../includes/functions.inc.php'; ?> <!-- PHP FUNCTIONS -->
 <?php include '../includes/check_if_admin.inc.php'; ?> <!-- CHECKS IF WHO IS ACCESSING THIS FILE IS admin-->
 <?php include '../includes/logout.inc.php'; ?> <!-- LOGOUT SCRIPT -->
-<?php include '../includes/adminindex.inc.php'; ?> <!-- THIS PAGE'S SCRIPT -->
+<?php include '../includes/admin_index.inc.php'; ?> <!-- THIS PAGE'S SCRIPT -->
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -77,6 +77,7 @@
                                 $sql_row = mysqli_fetch_array($result);
 
                                 if ($sql_row){
+                                    echo "<a href='livro.php?livro=" . $sql_row['id'] . "'>";
                                     echo "<book>";
                                         if($sql_row['imagemtipo']){
                                             #IF THE imagemtipo FIELD IS NOT EMPTY, IT MEANS->
@@ -104,6 +105,7 @@
                                         echo "</book-description>";
 
                                     echo "</book>";
+                                    echo "</a>";
                                 }
                             }
 

@@ -1,6 +1,7 @@
 <?php include 'includes/db_connection.inc.php'; ?> <!-- CONNECTION TO DATABASE-->
 <?php include 'includes/session.inc.php'; ?> <!-- STARTS A SESSION -->
 <?php include 'includes/functions.inc.php'; ?> <!-- PHP FUNCTIONS -->
+<?php include 'includes/check_if_logged.inc.php'; ?> <!-- REDIRECTS LOGGED USERS OUT OF THIS PAGE -->
 <?php include 'includes/cadastrar.inc.php'; ?> <!-- THIS PAGE'S CODE -->
 
 <!DOCTYPE html>

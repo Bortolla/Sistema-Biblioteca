@@ -3,7 +3,7 @@
 <?php include '../includes/functions.inc.php'; ?> <!-- PHP FUNCTIONS -->
 <?php include '../includes/check_if_admin.inc.php'; ?> <!-- CHECKS IF WHO IS ACCESSING THIS FILE IS admin-->
 <?php include '../includes/logout.inc.php'; ?> <!-- LOGOUT SCRIPT -->
-<?php include '../includes/admin_cadastrar.inc.php'; ?> <!-- THIS PAGE'S CODE -->
+<?php include '../includes/cadastrar.inc.php'; ?> <!-- THIS PAGE'S CODE -->
 
 <!DOCTYPE html>
 <html lang="pt-BR">

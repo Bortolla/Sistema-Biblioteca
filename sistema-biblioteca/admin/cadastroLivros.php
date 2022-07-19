@@ -19,7 +19,6 @@
 </head>
 
 <body>
-    <?php echo exec('whoami'); ?>
     <form action="../includes/cadastrarLivros.inc.php" method="POST" enctype="multipart/form-data">
 
         <input type="text" name="titulo" value="" placeholder="Título do livro" />

@@ -19,7 +19,8 @@
 </head>
 
 <body>
-    <form action="../includes/cadastrarLivros.inc.php" method="POST">
+    <?php echo exec('whoami'); ?>
+    <form action="../includes/cadastrarLivros.inc.php" method="POST" enctype="multipart/form-data">
 
         <input type="text" name="titulo" value="" placeholder="Título do livro" />
         
@@ -34,7 +35,12 @@
         <label for="descricao">Descrição do livro</label>
         <input name="descricao" value="" />
 
-        <button type="submit" name="save">Save</button>
+        <!-- Input para a imagem do livro -->
+        <input type="file" name="arquivoUpload">
+
+        <button type="submit" name="submit">
+            Cadastrar Livro
+        </button>
 
     </form>
 </body>

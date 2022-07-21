@@ -40,6 +40,8 @@
                         <button type="submit" id="login-btn">
                             Entrar
                         </button>
+
+                        <p class="cadastrar-se">Não possui cadastro? <a href="./cadastrar.php">Clique aqui!</a></p>
                     </form>
                 </div>
             </div>

@@ -79,6 +79,11 @@ form {
     flex-direction: column;
 }    
 
+.cadastrar-se {
+    align-self: center;
+    padding-top: 8px;
+}
+
 input[type=text] {
     all: unset;
     outline: none;
@@ -140,6 +145,7 @@ label {
 #usuario-container {
     margin-bottom: 50px;
 }
+
 
 /* MOBILE */
 

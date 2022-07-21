@@ -94,7 +94,7 @@ menu-user-acess{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
+    background-color: var(--background);
     /* padding-left: 7%; */
 }
 

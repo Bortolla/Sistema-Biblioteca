@@ -1,4 +1,4 @@
-<!-- <?php 
+<?php 
     // conexao com banco de dados
     require_once('../includes/db_connection.inc.php');
     
@@ -6,7 +6,7 @@
     require_once('../includes/session.inc.php');
     
     require_once('../includes/cadastrarLivros.inc.php');
-?>  -->
+?> 
 
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
 
 <body>
 
-    <!-- <?php
+    <?php
         // no lugar de Christie colocar $_POST["autor"]
         // e tmb tirar autor, e colocar nome do livro
 
@@ -38,7 +38,7 @@
         // echo $teste;
 
         // mysqli_close($__db_connect);
-    ?> -->
+    ?>
     <section class="space"></section>
         <section class="menu">
             <menu-user-image>

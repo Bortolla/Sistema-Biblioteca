@@ -116,9 +116,11 @@ book{
     margin: 20px;
     width: 15rem;
 }
+
 book-description{
     display: flex;
     flex-direction: column;
+    color: black;
 }
 book img{
     width: 12rem;

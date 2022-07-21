@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+    --background: #bfbfbf;
+    --formulario: rgb(218, 217, 217);
+    --title: black;
+    --preto: black;
+    --msgerror: rgb(102, 0, 0);
+    --placeholder: black;
+    --btncolor: #023535;
+    --menubackground: #023535;
+    --btnlettercolor: rgb(218, 217, 217);
+    --menuhover: #042929;
+
+}
+#tela_cadastro {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: var(--background);
+}
+
+.cadastro-titulo {
+    font-weight: 500;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-self: center;
+}
+
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.form-cadastro {
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 600px;
+    height: 520px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--formulario);
+    border-radius: 5px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.container label {
+    margin-bottom: 10px;
+}
+
+.password {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.submit-btn {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-self: center;
+    padding: 13px 0;
+    background-color: var(--btncolor);
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 25%;    
+    font-size: 17px;
+    color: var(--btnlettercolor);
+}
+
+.submit-btn:hover {
+    cursor: pointer;
+    /* padding: 18px 40px; */
+    /* box-shadow: 2px 2px 2px #535a61; */
+}
+
+.submit-btn:active {
+    opacity: 0.8;
+}
+
+input[type=text], input[type=email], input[type=tel], input[type=password] {
+    all: unset;
+    outline: none;
+    width: 90%;
+    padding: 5px;
+    display: block;
+    border-bottom: 2px solid var(--preto);
+    background: transparent;
+    margin-top: 15px;
+    color: var(--preto);
+}

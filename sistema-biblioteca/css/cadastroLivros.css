@@ -93,6 +93,11 @@ menu-user-acess{
     align-items: center;
     align-content: center;
 }
+#logout{
+    background-color: var(--msgerror);
+    padding: 15px;
+    border-radius: 3px;
+}
 
 /* ----------------- FORM ---------------------- */
 form{
@@ -105,11 +110,16 @@ form{
     align-content: center;
 
 }
-input, label, textarea, button, select {
+input, label, textarea, select {
     padding: 7px;
     display: block;
     margin: 10px;
     all: unset;
+}
+button{
+    padding: 7px;
+    display: block;
+    margin: 10px;
 }
 
 input, textarea, select{
@@ -118,12 +128,27 @@ input, textarea, select{
 }
 
 line{
-    width: 70%;
+    width: 73%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-
+inputLabel{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+label{
+    text-align: left;
+    width: 70%;
+    margin-bottom: 15px;
+}
+line label{
+    width: 95%;
+}
 .half-size{
-    width: 45%;
+    width: 95%;
 }

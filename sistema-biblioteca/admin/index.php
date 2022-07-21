@@ -36,13 +36,13 @@
                 <a href="<?php echo $_SERVER['PHP_SELF'].'?logout=1';?>">Encerrar Sessao</a>
             </menu-item>
             <menu-item>
-                Item X
+                <a href="index.php">Início</a>
             </menu-item>
             <menu-item>
-                Item X
+                <a href="./cadastrar.php">Cadastrar Aluno</a>
             </menu-item>
             <menu-item>
-                Item X
+                <a href="./cadastroLivros.php">Cadastrar Livro</a>
             </menu-item>
             <menu-item>
                 Item X

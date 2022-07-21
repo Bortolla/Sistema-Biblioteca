@@ -20,6 +20,7 @@ body{
     display: flex;
     flex-direction: row;
     background-color: var(--background);
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* ---------------------- MENU ---------------------------- */
@@ -46,6 +47,11 @@ menu-item{
 }
 menu-item:hover{
     background-color: var(--menuhover);
+}
+
+a {
+    text-decoration: none;
+    color: var(--background);
 }
 
 menu-user-image{

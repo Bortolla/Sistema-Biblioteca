@@ -69,3 +69,11 @@
             return $row['type'];
         }
     }
+
+    function can_borrow($server_connection, $book_id, $user_email){
+        #funcao que retorna se o usuario pode retirar o livro ou se tem pendencias
+        #ou o numero maximo de livros ja retirados
+    }
+    
+    #criar uma funcao que verifica se o email existe e retorna os dados se existir ou falso
+    #se nao existir

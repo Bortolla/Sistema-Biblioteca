@@ -24,6 +24,14 @@
         if (isset($book_borrowed)){echo "<p>Emprestados: $book_borrowed</p>";}
         if (isset($book_description)){echo "<p>Descricao: $book_description</p>";}
     ?>
-        <p>Retirado por: XXXXXXX Em:XXXXX Data devolucao: XXXXX Atrasado:Sim/Nao</p>
+    <p>Retirado por: XXXXXXX Em:XXXXX Data devolucao: XXXXX Atrasado:Sim/Nao</p>
+    
+    <form action="<?php echo $_SERVER['PHP_SELF'].'?livro=' . $book_id;?>" method="post">
+        <input type="email" name="student_email" id="">
+        <input type="submit" value="Enviar">
+    </form>
+    <div><?php if(isset($lending_error)){echo $lending_error;}?></div>
+    <?php print_r($_POST); ?>
+
 </body>
 </html>

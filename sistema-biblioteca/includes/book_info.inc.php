@@ -20,7 +20,7 @@
         $result = mysqli_stmt_get_result($stmt);
         $row = mysqli_fetch_assoc($result);
         
-        #IF THE ID DOES NOT EXIST, THE USER IS REDIRECTED->
+        #IF THE ID DOES NOT EXIST, THE ADMIN IS REDIRECTED->
         #->TO THE INDEX PAGE
         if (!$row){
             header('Location: index.php');
@@ -42,6 +42,13 @@
             }
             else{
                 $img_path = "../imagens/book.jpg";
+            }
+
+            if (isset($_POST['student_email'])){
+                if (!($book_copies > $book_borrowed)){
+                    $lending_error = '*Nao ha exemplares disponiveis';
+                }
+                
             }
 
         }

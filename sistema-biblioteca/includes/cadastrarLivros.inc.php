@@ -51,17 +51,6 @@ if (isset($_POST['submit'])) {
     // pegando o ultimo  valor apos o ponto e em minusculo
     $arquivoExtensao = strtolower(end($arquivoExtensao)); 
 
-    // if (in_array($arquivoExtensao, array('jpg', 'jpeg', 'png'))) {
-    //     echo '<br>';
-    //     echo $arquivoExtensao;
-    //     echo '<br>';
-    //     echo $nomeAtual;
-    //     echo '<br>';
-    //     echo 'FOI CARAI';
-    // } else {
-    //     echo 'aqui tmb, seu vacilão';
-    // }
-
     // nome de temporario do arquivo ao realizar o upload ao servidor
     $arquivoCaminhoTemporario = $_FILES["arquivoUpload"]["tmp_name"];
     

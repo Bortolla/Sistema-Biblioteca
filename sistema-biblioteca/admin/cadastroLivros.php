@@ -19,6 +19,27 @@
 </head>
 
 <body>
+
+    <?php
+        // no lugar de Christie colocar $_POST["autor"]
+        // e tmb tirar autor, e colocar nome do livro
+
+        // $sqlTESTE = ("SELECT id FROM livros WHERE autor='Christie';");
+        // $result = mysqli_query($__db_connect, $sqlTESTE); 
+        // //$ids = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        // while ($row = mysqli_fetch_array($result)) {
+        //     $teste = $row['id'];
+        //     //print_r($row['id'][0]);
+        // }
+
+        // mysqli_free_result($result);
+        
+        // echo $teste;
+
+        // mysqli_close($__db_connect);
+    ?>
+
     <form action="../includes/cadastrarLivros.inc.php" method="POST" enctype="multipart/form-data">
 
         <input type="text" name="titulo" value="" placeholder="Título do livro" />
@@ -31,7 +52,9 @@
         
         <input type="text" name="categoria" value="" placeholder="Categoria do livro"/>
         
-        <label for="descricao">Descrição do livro</label>
+        <label for="descricao">
+            Descrição do livro
+        </label>
         <input name="descricao" value="" />
 
         <!-- Input para a imagem do livro -->

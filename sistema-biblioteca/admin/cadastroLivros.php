@@ -39,32 +39,78 @@
 
         // mysqli_close($__db_connect);
     ?>
+    <section class="space"></section>
+        <section class="menu">
+            <menu-user-image>
+                <img src="imagens/user.png">
+            </menu-user-image>
+            <menu-user-name>
+                Nome do usuário
+                <menu-user-acess>
+                    Administrador <br>
+                    <?php
+                        
+                    ?>
+                <menu-user-acess>
+            </menu-user-name>
+            
+            <menu-item>
+                <a href="<?php echo $_SERVER['PHP_SELF'].'?logout=1';?>">Encerrar Sessao</a>
+            </menu-item>
+            <menu-item>
+                <a href="index.php">Início</a>
+            </menu-item>
+            <menu-item>
+                <a href="./cadastrar.php">Cadastrar Aluno</a>
+            </menu-item>
+            <menu-item>
+                <a href="./cadastroLivros.php">Cadastrar Livro</a>
+            </menu-item>
+            <menu-item>
+                Item X
+            </menu-item>
+            <menu-item>
+                Item X
+            </menu-item>
+        </section>
+    <section id="content">
+        <form action="../includes/cadastrarLivros.inc.php" method="POST" enctype="multipart/form-data">
 
-    <form action="../includes/cadastrarLivros.inc.php" method="POST" enctype="multipart/form-data">
+            <line>
+            <input type="text" name="titulo" value="" placeholder="Título do livro" class="half-size"/>
+            
+            <input type="text" name="autor" value="" placeholder="Nome do autor" class="half-size"/>
+            </line>
+            
+            <line>
+            <input type="text" name="paginas" value="" placeholder="Número de páginas" class="half-size"/>
+            
+            <input type="text" name="exemplares" value="" placeholder="Número de exemplares" class="half-size"/>
+            </line>
 
-        <input type="text" name="titulo" value="" placeholder="Título do livro" />
-        
-        <input type="text" name="autor" value="" placeholder="Nome do autor"/>
-        
-        <input type="text" name="paginas" value="" placeholder="Número de páginas"/>
-        
-        <input type="text" name="exemplares" value="" placeholder="Número de exemplares"/>
-        
-        <input type="text" name="categoria" value="" placeholder="Categoria do livro"/>
-        
-        <label for="descricao">
-            Descrição do livro
-        </label>
-        <input name="descricao" value="" />
+            <select name="categoria" value="" placeholder="Categoria do livro">
+                <option value="None" selected="true" disabled="disabled" id="disabled-option">Selecione uma categoria</option>
+                <option value="Ação">Ação</option>
+                <option value="Terror">Terror</option>
+                <option value="Educação">Educação</option>
+                <option value="Aventura">Aventura</option>
+            </select>
 
-        <!-- Input para a imagem do livro -->
-        <input type="file" name="arquivoUpload">
+            
+            <label for="descricao">
+                Descrição do livro
+            </label>
+            <input name="descricao" value="" />
 
-        <button type="submit" name="submit">
-            Cadastrar Livro
-        </button>
+            <!-- Input para a imagem do livro -->
+            <input type="file" name="arquivoUpload">
 
-    </form>
+            <button type="submit" name="submit">
+                Cadastrar Livro
+            </button>
+
+        </form>
+    </section>
 </body>
 
 </html>

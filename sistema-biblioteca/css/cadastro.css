@@ -42,15 +42,19 @@
     position: fixed;
     color: rgb(218, 217, 217)
 }
-.space{
-    width: 20%;
-    height: 100%;
-}
 menu-item{
     padding: 20px 0;
     width: 100%;
     align-self: center;
     text-align: center;
+}
+menu-item a {
+    text-decoration: none;
+    color: var(--background);
+}
+.space{
+    width: 20%;
+    height: 100%;
 }
 menu-item:hover{
     background-color: var(--menuhover);

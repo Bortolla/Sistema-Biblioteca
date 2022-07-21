@@ -1,23 +1,7 @@
-<?php 
-    $path = 'includes/db_connection.inc.php';
-    set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-?> <!-- CONNECTION TO DATABASE-->
-
-<?php 
-    $path = 'includes/session.inc.php';
-    set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-?> <!-- STARTS A SESSION -->
-
-<?php 
-    $path = 'includes/functions.inc.php';
-    set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-?> <!-- PHP FUNCTIONS -->
-
-<?php 
-    $path = 'includes/login.inc.php';
-    set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-?> <!-- THIS PAGE'S CODE -->
-
+<?php include 'includes/db_connection.inc.php'; ?> <!-- CONNECTION TO DATABASE -->
+<?php include 'includes/session.inc.php'; ?> <!-- STARTS A SESSION -->
+<?php include 'includes/functions.inc.php'; ?> <!-- PHP FUNCTIONS -->
+<?php include 'includes/login.inc.php'; ?> <!-- THIS PAGE'S CODE -->
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -49,7 +33,7 @@
                             <label for="senha">Senha</label>
                             <input type="text" placeholder="Digite sua senha" name="password" id="senha" class="input-grupo">
                             <br>
-                            <div><?php echo $login_error; ?></div>
+                            <div><?php if(isset($login_error)){echo $login_error;}?></div>
                             <br>
                         </div>
 

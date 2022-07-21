@@ -1,9 +1,8 @@
-<?php include '../includes/db_connection.inc.php' ?> <!-- CONNECTION TO DATABASE-->
-<?php include '../includes/session.inc.php' ?> <!-- STARTS A SESSION-->
-<?php include '../includes/functions.inc.php' ?> <!-- PHP FUNCTIONS -->
-<?php include '../includes/check_if_user.inc.php' ?> <!-- CHECKS IF WHO IS ACCESSING THIS FILE IS user-->
-<?php include '../includes/logout.inc.php' ?> <!-- LOGOUT SCRIPT -->
-
+<?php include '../includes/db_connection.inc.php'; ?> <!-- CONNECTION TO DATABASE-->
+<?php include '../includes/session.inc.php'; ?> <!-- STARTS A SESSION-->
+<?php include '../includes/functions.inc.php'; ?> <!-- PHP FUNCTIONS -->
+<?php include '../includes/check_if_user.inc.php'; ?> <!-- CHECKS IF WHO IS ACCESSING THIS FILE IS user-->
+<?php include '../includes/logout.inc.php'; ?> <!-- LOGOUT SCRIPT -->
 
 <!DOCTYPE html>
 <html lang="pt-BR">

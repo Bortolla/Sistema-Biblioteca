@@ -20,6 +20,7 @@ body{
     display: flex;
     flex-direction: row;
     background-color: var(--background);
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* ---------------------- MENU ---------------------------- */
@@ -46,6 +47,11 @@ menu-item{
 }
 menu-item:hover{
     background-color: var(--menuhover);
+}
+
+a {
+    text-decoration: none;
+    color: var(--background);
 }
 
 menu-user-image{
@@ -110,9 +116,11 @@ book{
     margin: 20px;
     width: 15rem;
 }
+
 book-description{
     display: flex;
     flex-direction: column;
+    color: black;
 }
 book img{
     width: 12rem;

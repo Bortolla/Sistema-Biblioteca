@@ -60,15 +60,37 @@
                 if (isset($book_copies)){echo "<p class='conteudo'><span class='bold'>Exemplares:</span> $book_copies</p>";}
                 if (isset($book_borrowed)){echo "<p class='conteudo'><span class='bold'>Emprestados:</span> $book_borrowed</p></div></div>";}
             ?>
-            <p class='conteudovar'><span class='bold'>Retirado por:</span> XXXXXXX <span class='bold'>Em:</span>XXXXX <span class='bold'>Data devolucao:</span> XXXXX <span class='bold'>Atrasado:</span> Sim/Nao</p>
 
-            <form action="<?php echo $_SERVER['PHP_SELF'].'?livro=' . $book_id;?>" method="post">
-            
-            <input type="email" name="student_email" id="">
-            <input type="submit" value="Enviar">
-            </form>
-            <div><?php if(isset($lending_error)){echo $lending_error;}?></div>
-            <?php print_r($_POST); ?>
+            <?php
+                if (!isset($student_can_borrow)){
+                    echo "<form action=".$_SERVER['PHP_SELF'].'?livro=' . $book_id . " method='post'>";
+                        echo "<input type='email' name='student_email' id=''>";
+                        echo "<input type='submit' value='Emprestar'>";
+                    echo "</form>";
+                    if(isset($lending_error)){echo $lending_error;}
+                }
+            ?>
+            <div>
+                <?php
+                    if (isset($student_can_borrow) && $student_can_borrow){
+                        echo "<p class='conteudo'><span class='bold'>Nome:</span> 
+                                $student_name" . ' ' . "$student_lastname</p>";
+                        echo "<p class='conteudo'><span class='bold'>ID:</span> 
+                                $student_id</p>";
+                        echo "<p class='conteudo'><span class='bold'>Email:
+                                </span> $student_email</p>";
+                        echo "<p class='conteudo'><span class='bold'>Livro a ser emprestado:
+                                </span> $book_title</p>";
+
+                        echo "<form action=" . $_SERVER['PHP_SELF'] . "?livro=" . $book_id . " method='post'>";
+                            echo "<input type='hidden' value='$student_email' name='book_borrower'>";
+                            echo "<input type='submit' value='Emprestar'>";
+                        echo "</form>";
+                        
+                    }
+                ?>
+                
+            </div>
         </div>
 
     </body>

@@ -67,17 +67,17 @@
                 #IF THE INFORMED STUDENT IS ABLE TO BORROW OR RETURN->
                 #->THE BOOK, THIS BLOCK IS HIDDEN AND THE BLOCK WITH->
                 #->THE CONFIRMATION IS SHOWN
-                if (!isset($student_can_borrow)){
+                if (!isset($student_can_borrow) and !isset($student_can_return)){
                     echo "<form action=".$_SERVER['PHP_SELF'].'?livro=' . $book_id . " method='post'>";
                         echo "<label for='email'>Email do usuario:</label>";
                         echo "<input type='email' name='student_email' id='email'>";
                         echo "<input type='radio' name='choice' value='borrow' id ='borrow'>";
                         echo "<label for='borrow'>Emprestar</label>";
                         echo "<input type='radio' name='choice' value='return' id='return'>";
-                        echo "<label for='return'>Retornar</label>";
+                        echo "<label for='return'>Devolver</label>";
                         echo "<input type='submit' value='Enviar'>";
                     echo "</form>";
-                    if(isset($lending_error)){echo $lending_error;}
+                    if(isset($lending_returning_error)){echo $lending_returning_error;}
                     if(isset($lending_success)){echo $lending_success;}
                 }
             ?>
@@ -98,7 +98,7 @@
                         echo "<p class='conteudo'><span class='bold'>Livro a ser emprestado:
                                 </span> $book_title</p>";
                         
-                        #CONFIRM LENDIN A BOOK BUTTON
+                        #CONFIRM LENDING A BOOK BUTTON
                         echo "<form action=" . $_SERVER['PHP_SELF'] . "?livro=" . $book_id . " method='post'>";
                             echo "<input type='hidden' value='$student_email' name='lending_confirmed'>";
                             echo "<input type='submit' value='Emprestar'>";
@@ -107,6 +107,29 @@
                         #CANCEL LENDING A BOOK BUTTON
                         echo "<a href='" . $_SERVER['PHP_SELF'] . '?livro=' . $book_id . "'" . 
                                 "><input type='button' value='Cancelar'></a>";
+                    }
+                    elseif (isset($student_can_return)){
+
+                        #STUDENT INFO
+                        echo "<p class='conteudo'><span class='bold'>Nome:</span> 
+                                $student_name" . ' ' . "$student_lastname</p>";
+                        echo "<p class='conteudo'><span class='bold'>ID:</span> 
+                                $student_id</p>";
+                        echo "<p class='conteudo'><span class='bold'>Email:
+                                </span> $student_email</p>";
+                        echo "<p class='conteudo'><span class='bold'>Livro a ser devolvido:
+                                </span> $book_title</p>";
+                        
+                        #CONFIRM RETURNING A BOOK BUTTON
+                        echo "<form action=" . $_SERVER['PHP_SELF'] . "?livro=" . $book_id . " method='post'>";
+                            echo "<input type='hidden' value='$student_email' name='returning_confirmed'>";
+                            echo "<input type='submit' value='Devolver'>";
+                        echo "</form>";
+
+                        #CANCEL RETURNING A BOOK BUTTON
+                        echo "<a href='" . $_SERVER['PHP_SELF'] . '?livro=' . $book_id . "'" . 
+                                "><input type='button' value='Cancelar'></a>";
+                        
                     }
                 ?>
                 

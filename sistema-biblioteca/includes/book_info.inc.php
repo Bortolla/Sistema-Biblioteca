@@ -48,7 +48,7 @@
 
             #IF NO OPTION IS CHOSEN AN ERROR IS SENT
             if (isset($_POST['student_email']) && !(isset($_POST['choice']))){
-                $lending_error = '*Selecione uma opcao';
+                $lending_returning_error = '*Selecione uma opcao';
             }
 
             #THE CASE WHEN THE OPTION IS TO LEND A BOOK
@@ -56,21 +56,21 @@
                 $student_email = clean_data($_POST['student_email']);
                 if (!($student_info = get_student_info($__db_connect, 
                     $student_email))){
-                    $lending_error = '*Usuario nao encontrado';
+                    $lending_returning_error = '*Usuario nao encontrado';
                 }
                 elseif (!($book_copies > $book_borrowed)){
-                    $lending_error = '*Nao ha exemplares disponiveis';
+                    $lending_returning_error = '*Nao ha exemplares disponiveis';
                 }
                 elseif ($student_info['pending']){
-                    $lending_error = '*O usuario possui devolucoes atrasadas';
+                    $lending_returning_error = '*O usuario possui devolucoes atrasadas';
                 }
                 elseif ($student_info['book1'] and $student_info['book2'] and 
                         $student_info['book3']){
-                    $lending_error = '*O usuario ja possui 3 livros retirados';
+                    $lending_returning_error = '*O usuario ja possui 3 livros retirados';
                 }
                 elseif (in_array($book_id, array($student_info['book1'], 
                         $student_info['book2'], $student_info['book3']))){
-                    $lending_error = '*O usuario ja esta com o livro';
+                    $lending_returning_error = '*O usuario ja esta com o livro';
                 }
                 else{
                     $student_can_borrow = TRUE;
@@ -80,8 +80,26 @@
                 }
             }
 
+            #THE CASE WHEN THE OPTION IS TO RETURN A BOOK
             elseif (isset($_POST['student_email']) && $_POST['choice'] == 'return'){
-                # ESCREVER O CODIGO PARA RETORNAR UM LIVRO
+                $student_email = clean_data($_POST['student_email']);
+                if (!($student_info = get_student_info($__db_connect, 
+                    $student_email))){
+                    $lending_returning_error = '*Usuario nao encontrado';
+                }
+                elseif ($book_borrowed == 0){
+                    $lending_returning_error = '*Nao ha exemplares retirados desse livro';
+                }
+                elseif (!(in_array($book_id, array($student_info['book1'], 
+                        $student_info['book2'], $student_info['book3'],)))){
+                    $lending_returning_error = '*O usuario informado nao retirou esse livro';
+                }
+                else{
+                    $student_can_return = TRUE;
+                    $student_name = $student_info['firstname'];
+                    $student_lastname = $student_info['lastname'];
+                    $student_id = $student_info['id'];
+                }
             }
 
             #THIS BLOCK IS FOR WHEN THERE IS A CONFIRMATION->
@@ -115,13 +133,53 @@
                         $lending_success = "Livro emprestado com sucesso";
                     }
                     else{
-                        $lending_error = "*Erro ao concluir a aplicacao. Tente novamente.";
+                        $lending_returning_error = "*Erro ao concluir a aplicacao. Tente novamente.";
                     }
                 }
                 else{
-                    $lending_error = "*Erro ao concluir a aplicacao. Tente novamente.";
+                    $lending_returning_error = "*Erro ao concluir a aplicacao. Tente novamente.";
                 }
                 
+            }
+
+            #THIS BLOCK IS FOR WHEN THERE IS A CONFIRMATION->
+            #->TO RETURN THE BOOK
+            elseif (isset($_POST['returning_confirmed'])){
+                $student_email = $_POST['returning_confirmed'];
+
+                $student_info = get_student_info($__db_connect, $student_email);
+
+                if ($student_info['book1'] == $book_id){
+                    $sql_update_student = "UPDATE account_info SET book1=?,time1=? WHERE email=?";
+                }
+                elseif ($student_info['book2'] == $book_id){
+                    $sql_update_student = "UPDATE account_info SET book2=?,time2=? WHERE email=?";
+                }
+                elseif ($student_info['book3'] == $book_id){
+                    $sql_update_student = "UPDATE account_info SET book3=?,time3=? WHERE email=?";
+                }
+
+                $book_borrowed = $book_borrowed - 1;
+                $sql_update_book = "UPDATE livros SET retirados=? WHERE id=?";
+                $stmt = mysqli_stmt_init($__db_connect);
+                mysqli_stmt_prepare($stmt, $sql_update_book);
+                mysqli_stmt_bind_param($stmt, "ii", $book_borrowed, $book_id);
+                if (mysqli_stmt_execute($stmt)){
+                    $zero = 0;
+                    $null = NULL;
+                    $stmt = mysqli_stmt_init($__db_connect);
+                    mysqli_stmt_prepare($stmt, $sql_update_student);
+                    mysqli_stmt_bind_param($stmt, "sis", $null, $zero, $student_email);
+                    if(mysqli_stmt_execute($stmt)){
+                        $lending_success = "Livro devolvido com sucesso";
+                    }
+                    else{
+                        $lending_returning_error = "*Erro ao concluir a aplicacao. Tente novamente.";
+                    }
+                }
+                else{
+                    $lending_returning_error = "*Erro ao concluir a aplicacao. Tente novamente.";
+                }
             }
 
         }

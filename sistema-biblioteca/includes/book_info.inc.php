@@ -37,6 +37,7 @@
             $book_borrowed = $row['retirados'];
             $book_img_type = $row['imagemtipo'];
 
+            #SETTING THE IMAGE PATH OF THE BOOK
             if ($book_img_type){
                 $img_path = "../imagens/" . $book_id . 
                                 '.' . $book_img_type;
@@ -45,7 +46,13 @@
                 $img_path = "../imagens/book.jpg";
             }
 
-            if (isset($_POST['student_email'])){
+            #IF NO OPTION IS CHOSEN AN ERROR IS SENT
+            if (isset($_POST['student_email']) && !(isset($_POST['choice']))){
+                $lending_error = '*Selecione uma opcao';
+            }
+
+            #THE CASE WHEN THE OPTION IS TO LEND A BOOK
+            elseif (isset($_POST['student_email']) && $_POST['choice'] == 'borrow'){
                 $student_email = clean_data($_POST['student_email']);
                 if (!($student_info = get_student_info($__db_connect, 
                     $student_email))){
@@ -72,37 +79,49 @@
                     $student_id = $student_info['id'];
                 }
             }
-            elseif ((isset($_POST['book_borrower']))){
-                $student_email = $_POST['book_borrower'];
+
+            elseif (isset($_POST['student_email']) && $_POST['choice'] == 'return'){
+                # ESCREVER O CODIGO PARA RETORNAR UM LIVRO
+            }
+
+            #THIS BLOCK IS FOR WHEN THERE IS A CONFIRMATION->
+            #->TO LEND THE BOOK
+            elseif ((isset($_POST['lending_confirmed']))){
+                $student_email = $_POST['lending_confirmed'];
                 
                 $student_info = get_student_info($__db_connect, $student_email);
 
                 if (!$student_info['book1']){
-                    $sql = "UPDATE account_info SET book1=?,time1=? WHERE email=?";
+                    $sql_update_student = "UPDATE account_info SET book1=?,time1=? WHERE email=?";
                 }
                 elseif (!$student_info['book2']){
-                    $sql = "UPDATE account_info SET book2=?,time2=? WHERE email=?";
+                    $sql_update_student = "UPDATE account_info SET book2=?,time2=? WHERE email=?";
                 }
                 elseif (!$student_info['book3']){
-                    $sql = "UPDATE account_info SET book3=?,time3=? WHERE email=?";
+                    $sql_update_student = "UPDATE account_info SET book3=?,time3=? WHERE email=?";
                 }
 
-                $now = time();
-                $stmt = mysqli_stmt_init($__db_connect);
-                mysqli_stmt_prepare($stmt, $sql);
-                mysqli_stmt_bind_param($stmt, "sis", $book_id, $now, $student_email);
-                mysqli_stmt_execute($stmt);
-                mysqli_stmt_close($stmt);
-                
                 $book_borrowed = $book_borrowed + 1;
-                $sql = "UPDATE livros SET retirados=? WHERE id=?";
+                $sql_update_book = "UPDATE livros SET retirados=? WHERE id=?";
                 $stmt = mysqli_stmt_init($__db_connect);
-                mysqli_stmt_prepare($stmt, $sql);
+                mysqli_stmt_prepare($stmt, $sql_update_book);
                 mysqli_stmt_bind_param($stmt, "ii", $book_borrowed, $book_id);
-                mysqli_stmt_execute($stmt);
-
-
-
+                if (mysqli_stmt_execute($stmt)){
+                    $now = time();
+                    $stmt = mysqli_stmt_init($__db_connect);
+                    mysqli_stmt_prepare($stmt, $sql_update_student);
+                    mysqli_stmt_bind_param($stmt, "sis", $book_id, $now, $student_email);
+                    if(mysqli_stmt_execute($stmt)){
+                        $lending_success = "Livro emprestado com sucesso";
+                    }
+                    else{
+                        $lending_error = "*Erro ao concluir a aplicacao. Tente novamente.";
+                    }
+                }
+                else{
+                    $lending_error = "*Erro ao concluir a aplicacao. Tente novamente.";
+                }
+                
             }
 
         }

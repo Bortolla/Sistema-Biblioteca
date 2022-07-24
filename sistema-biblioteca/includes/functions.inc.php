@@ -70,6 +70,8 @@
         }
     }
 
+    #FUNCTION THAT RETURNS THE INFORMATION OF AN USER->
+    #->OR RETURNS FALSE IF THE USER DOES NOT EXIST
     function get_student_info($server_connection, $student_email){
         $sql = "SELECT * FROM account_info WHERE email=?";
         $stmt = mysqli_stmt_init($server_connection);

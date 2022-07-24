@@ -132,6 +132,25 @@
                         
                     }
                 ?>
+                <div>
+                    <?php
+                        if ($book_borrowed > 0){
+                            echo "RETIRADO POR:";
+                            echo "<br>";
+                            while ($row = mysqli_fetch_assoc($result)){
+                                echo "Nome: ";
+                                echo $row['firstname'] . ' ' . $row['lastname'] . " ";
+                                echo "ID: ";
+                                echo $row['id'] . " ";
+                                echo "Email: ";
+                                echo $row['email'] . " ";
+                                echo "Retirada: ";
+                                echo "Devolucao: ";
+                                echo "<br>";
+                            }
+                        }
+                    ?>
+                </div>
                 
             </div>
         </div>

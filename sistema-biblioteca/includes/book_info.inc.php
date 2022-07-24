@@ -46,6 +46,22 @@
                 $img_path = "../imagens/book.jpg";
             }
 
+            if (isset($_GET['lendsuc']) and $_GET['lendsuc'] == 1){
+                $lending_success = "Livro emprestado com sucesso";
+            }
+            elseif (isset($_GET['retsuc']) and $_GET['retsuc'] == 1){
+                $lending_success = "Livro devolvido com sucesso";
+            }
+            
+            if ($book_borrowed > 0){
+                $sql = "SELECT * FROM account_info WHERE book1=? 
+                        or book2=? or book3=?";
+                $stmt = mysqli_stmt_init($__db_connect);
+                mysqli_stmt_prepare($stmt, $sql);
+                mysqli_stmt_bind_param($stmt, 'sss', $book_id, $book_id, $book_id);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+            }
             #IF NO OPTION IS CHOSEN AN ERROR IS SENT
             if (isset($_POST['student_email']) && !(isset($_POST['choice']))){
                 $lending_returning_error = '*Selecione uma opcao';
@@ -130,7 +146,7 @@
                     mysqli_stmt_prepare($stmt, $sql_update_student);
                     mysqli_stmt_bind_param($stmt, "sis", $book_id, $now, $student_email);
                     if(mysqli_stmt_execute($stmt)){
-                        $lending_success = "Livro emprestado com sucesso";
+                        header("Location: " . $_SERVER['PHP_SELF'] . '?livro=' . $book_id . '&lendsuc=1');
                     }
                     else{
                         $lending_returning_error = "*Erro ao concluir a aplicacao. Tente novamente.";
@@ -171,7 +187,7 @@
                     mysqli_stmt_prepare($stmt, $sql_update_student);
                     mysqli_stmt_bind_param($stmt, "sis", $null, $zero, $student_email);
                     if(mysqli_stmt_execute($stmt)){
-                        $lending_success = "Livro devolvido com sucesso";
+                        header("Location: " . $_SERVER['PHP_SELF'] . '?livro=' . $book_id . '&retsuc=1');
                     }
                     else{
                         $lending_returning_error = "*Erro ao concluir a aplicacao. Tente novamente.";

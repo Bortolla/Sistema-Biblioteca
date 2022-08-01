@@ -70,10 +70,20 @@
         }
     }
 
-    function can_borrow($server_connection, $book_id, $user_email){
-        #funcao que retorna se o usuario pode retirar o livro ou se tem pendencias
-        #ou o numero maximo de livros ja retirados
+    #FUNCTION THAT RETURNS THE INFORMATION OF AN USER->
+    #->OR RETURNS FALSE IF THE USER DOES NOT EXIST
+    function get_student_info($server_connection, $student_email){
+        $sql = "SELECT * FROM account_info WHERE email=?";
+        $stmt = mysqli_stmt_init($server_connection);
+        mysqli_stmt_prepare($stmt, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $student_email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $row = mysqli_fetch_assoc($result);
+        if ($row){
+            return $row;
+        }
+        else{
+            return False;
+        }
     }
-    
-    #criar uma funcao que verifica se o email existe e retorna os dados se existir ou falso
-    #se nao existir

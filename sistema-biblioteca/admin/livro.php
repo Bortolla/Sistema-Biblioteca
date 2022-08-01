@@ -29,10 +29,6 @@
                     ?>
                 <menu-user-acess>
             </menu-user-name>
-            
-            <menu-item>
-                <a href="<?php echo $_SERVER['PHP_SELF'].'?logout=1';?>">Encerrar Sessao</a>
-            </menu-item>
             <menu-item>
                 <a href="index.php">Início</a>
             </menu-item>
@@ -48,27 +44,114 @@
             <menu-item>
                 Item X
             </menu-item>
+            <menu-item >
+                <a id="logout" href="<?php echo $_SERVER['PHP_SELF'].'?logout=1';?>"><b>Encerrar Sessao</b></a>
+            </menu-item>
         </section>
         <div class="infolivro">
             <?php
-                if (isset($book_title)){echo "<h1 class='titulo'>$book_title</h1>";}
-                if (isset($img_path)){echo "<div class='ladinho'><img src='$img_path' width='240px' height='340px'>";}
-                if (isset($book_description)){echo "<div class='informacoes_livro'> <p class='conteudo'><span class='bold'>Descricao: </span>$book_description</p>";}
-                if (isset($book_author)){echo "<p class='conteudo'><span class='bold'>Autor:</span> $book_author</p>";}
-                if (isset($book_pages)){echo "<p class='conteudo'><span class='bold'>Paginas:</span> $book_pages</p>";}
-                if (isset($book_genre)){echo "<p class='conteudo'><span class='bold'>Categoria:</span> $book_genre</p>";}
-                if (isset($book_copies)){echo "<p class='conteudo'><span class='bold'>Exemplares:</span> $book_copies</p>";}
-                if (isset($book_borrowed)){echo "<p class='conteudo'><span class='bold'>Emprestados:</span> $book_borrowed</p></div></div>";}
-            ?>
-            <p class='conteudovar'><span class='bold'>Retirado por:</span> XXXXXXX <span class='bold'>Em:</span>XXXXX <span class='bold'>Data devolucao:</span> XXXXX <span class='bold'>Atrasado:</span> Sim/Nao</p>
+                #BOOK INFO
+                echo "<h1 class='titulo'>$book_title</h1>";
+                echo "<div class='ladinho'><img src='$img_path' width='240px' height='340px'>";
+                echo "<div class='informacoes_livro'> <p class='conteudo'><span class='bold'>
+                        Descricao: </span>$book_description</p>";
+                echo "<p class='conteudo'><span class='bold'>Autor:</span> $book_author</p>";
+                echo "<p class='conteudo'><span class='bold'>Paginas:</span> $book_pages</p>";
+                echo "<p class='conteudo'><span class='bold'>Categoria:</span> $book_genre</p>";
+                echo "<p class='conteudo'><span class='bold'>Exemplares:</span> $book_copies</p>";
+                echo "<p class='conteudo'><span class='bold'>Emprestados:</span> 
+                        $book_borrowed</p></div></div>";
 
-            <form action="<?php echo $_SERVER['PHP_SELF'].'?livro=' . $book_id;?>" method="post">
-            
-            <input type="email" name="student_email" id="">
-            <input type="submit" value="Enviar">
-            </form>
-            <div><?php if(isset($lending_error)){echo $lending_error;}?></div>
-            <?php print_r($_POST); ?>
+                #THIS ARE THE INPUTS TO LEND OR RETURN A BOOK
+                #IF THE INFORMED STUDENT IS ABLE TO BORROW OR RETURN->
+                #->THE BOOK, THIS BLOCK IS HIDDEN AND THE BLOCK WITH->
+                #->THE CONFIRMATION IS SHOWN
+                if (!isset($student_can_borrow) and !isset($student_can_return)){
+                    echo "<form action=".$_SERVER['PHP_SELF'].'?livro=' . $book_id . " method='post'>";
+                        echo "<label for='email'>Email do usuario:</label>";
+                        echo "<input type='email' name='student_email' id='email'>";
+                        echo "<input type='radio' name='choice' value='borrow' id ='borrow'>";
+                        echo "<label for='borrow'>Emprestar</label>";
+                        echo "<input type='radio' name='choice' value='return' id='return'>";
+                        echo "<label for='return'>Devolver</label>";
+                        echo "<input type='submit' value='Enviar'>";
+                    echo "</form>";
+                    if(isset($lending_returning_error)){echo $lending_returning_error;}
+                    if(isset($lending_success)){echo $lending_success;}
+                }
+            ?>
+            <div>
+                <?php
+                    #THIS BLOCK ONLY APPEARS WHEN THE STUDENT IS ABLE TO BORROW->
+                    #->THE BOOK. IT SHOWS THE STUDENTS'S INFO AND A CONFIRMATION->
+                    #->BOX TO LEND THE BOOK
+                    if (isset($student_can_borrow)){
+
+                        #STUDENT INFO
+                        echo "<p class='conteudo'><span class='bold'>Nome:</span> 
+                                $student_name" . ' ' . "$student_lastname</p>";
+                        echo "<p class='conteudo'><span class='bold'>ID:</span> 
+                                $student_id</p>";
+                        echo "<p class='conteudo'><span class='bold'>Email:
+                                </span> $student_email</p>";
+                        echo "<p class='conteudo'><span class='bold'>Livro a ser emprestado:
+                                </span> $book_title</p>";
+                        
+                        #CONFIRM LENDING A BOOK BUTTON
+                        echo "<form action=" . $_SERVER['PHP_SELF'] . "?livro=" . $book_id . " method='post'>";
+                            echo "<input type='hidden' value='$student_email' name='lending_confirmed'>";
+                            echo "<input type='submit' value='Emprestar'>";
+                        echo "</form>";
+
+                        #CANCEL LENDING A BOOK BUTTON
+                        echo "<a href='" . $_SERVER['PHP_SELF'] . '?livro=' . $book_id . "'" . 
+                                "><input type='button' value='Cancelar'></a>";
+                    }
+                    elseif (isset($student_can_return)){
+
+                        #STUDENT INFO
+                        echo "<p class='conteudo'><span class='bold'>Nome:</span> 
+                                $student_name" . ' ' . "$student_lastname</p>";
+                        echo "<p class='conteudo'><span class='bold'>ID:</span> 
+                                $student_id</p>";
+                        echo "<p class='conteudo'><span class='bold'>Email:
+                                </span> $student_email</p>";
+                        echo "<p class='conteudo'><span class='bold'>Livro a ser devolvido:
+                                </span> $book_title</p>";
+                        
+                        #CONFIRM RETURNING A BOOK BUTTON
+                        echo "<form action=" . $_SERVER['PHP_SELF'] . "?livro=" . $book_id . " method='post'>";
+                            echo "<input type='hidden' value='$student_email' name='returning_confirmed'>";
+                            echo "<input type='submit' value='Devolver'>";
+                        echo "</form>";
+
+                        #CANCEL RETURNING A BOOK BUTTON
+                        echo "<a href='" . $_SERVER['PHP_SELF'] . '?livro=' . $book_id . "'" . 
+                                "><input type='button' value='Cancelar'></a>";
+                        
+                    }
+                ?>
+                <div>
+                    <?php
+                        if ($book_borrowed > 0){
+                            echo "RETIRADO POR:";
+                            echo "<br>";
+                            while ($row = mysqli_fetch_assoc($result)){
+                                echo "Nome: ";
+                                echo $row['firstname'] . ' ' . $row['lastname'] . " ";
+                                echo "ID: ";
+                                echo $row['id'] . " ";
+                                echo "Email: ";
+                                echo $row['email'] . " ";
+                                echo "Retirada: ";
+                                echo "Devolucao: ";
+                                echo "<br>";
+                            }
+                        }
+                    ?>
+                </div>
+                
+            </div>
         </div>
 
     </body>

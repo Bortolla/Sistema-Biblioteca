@@ -30,10 +30,6 @@
                     ?>
                 <menu-user-acess>
             </menu-user-name>
-            
-            <menu-item>
-                <a href="<?php echo $_SERVER['PHP_SELF'].'?logout=1';?>">Encerrar Sessao</a>
-            </menu-item>
             <menu-item>
                 <a href="index.php">Início</a>
             </menu-item>
@@ -49,7 +45,10 @@
             <menu-item>
                 Item X
             </menu-item>
-    </section>
+            <menu-item >
+                <a id="logout" href="<?php echo $_SERVER['PHP_SELF'].'?logout=1';?>"><b>Encerrar Sessao</b></a>
+            </menu-item>
+        </section>
     <div class="form">
         <h1 class="cadastro-titulo">Cadastro de Alunos</h1>
         <form class="form-cadastro" action="cadastrar.php" method="post"> <!-- Formulario de cadastro para acessar o sistema -->

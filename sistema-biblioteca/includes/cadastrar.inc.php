@@ -98,14 +98,20 @@
         }
 
         else{
+            #Template of the request with placeholders->
+            #->that will receive values later on
             $sql = "INSERT INTO account_info (firstname, lastname, 
-            class, phone, email, id, password, type) VALUES (?,?,?,?,?,?,?,?)"; #Template of the request with placeholders ->
-                                                                        #->that will receive values later on
-
+                    class, phone, email, id, password, type, time1, 
+                    time2, time3, pending) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)"; 
+                                                                        
+           
+            $zero = 0; #ASSIGNING 0 TO A VARIABLE TO USE IN THE STMT BIND FUNCTION->
+            #->CAUSE ONLY VARIABLES CAN BE USED AS PARAMETERS
             $stmt = mysqli_stmt_init($__db_connect); #Creates a prepared statement
             mysqli_stmt_prepare($stmt, $sql); #Prepares the statement, checks if everything is right
-            mysqli_stmt_bind_param($stmt, 'ssssssss', $_firstname, 
-            $_lastname, $_class, $_phone, $_email, $_id, $_password, $_type); #insert the variables into the statement
+            mysqli_stmt_bind_param($stmt, 'ssssssssiiii', $_firstname, $_lastname, 
+                                    $_class, $_phone, $_email, $_id, $_password, $_type,
+                                    $zero, $zero, $zero, $zero); #insert the variables into the statement
 
             if (!mysqli_stmt_execute($stmt)){
                 $application_failed = "Erro ao enviar os dados. Tente novamente.";

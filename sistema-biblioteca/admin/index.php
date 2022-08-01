@@ -31,10 +31,6 @@
                     ?>
                 <menu-user-acess>
             </menu-user-name>
-            
-            <menu-item>
-                <a href="<?php echo $_SERVER['PHP_SELF'].'?logout=1';?>">Encerrar Sessao</a>
-            </menu-item>
             <menu-item>
                 <a href="index.php">Início</a>
             </menu-item>
@@ -49,6 +45,9 @@
             </menu-item>
             <menu-item>
                 Item X
+            </menu-item>
+            <menu-item >
+                <a id="logout" href="<?php echo $_SERVER['PHP_SELF'].'?logout=1';?>"><b>Encerrar Sessao</b></a>
             </menu-item>
         </section>
         <section class="content">

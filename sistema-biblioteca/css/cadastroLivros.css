@@ -100,14 +100,60 @@ menu-user-acess{
 }
 
 /* ----------------- FORM ---------------------- */
-form{
-    width: 100%;
+#content{
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     align-content: center;
+}
+#upload {
+    background-image: url('/imagens/upload-icon.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 7rem;
+    color: transparent;
+    border: 1px solid black;
+    width: 70%;
+}
+#upload:hover{
+    cursor: pointer;
+}
+
+.cadastro-titulo {
+    font-weight: 500;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-self: center;
+    font-size: 36px;
+}
+.submit-btn {
+    justify-self: center;
+    padding: 13px 0;
+    background-color: var(--btncolor);
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 25%;    
+    font-size: 17px;
+    color: var(--btnlettercolor);
+}
+.submit-btn:hover{
+    cursor: pointer;
+}
+form{
+    width: 60%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    background-color: #d9d9d9;
+    vertical-align: middle;
+    border-radius: 10px;
 
 }
 input, label, textarea, select {

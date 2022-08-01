@@ -73,8 +73,8 @@
             </menu-item>
         </section>
     <section id="content">
+        <h1 class="cadastro-titulo">Cadastro de Livros</h1>
         <form action="../includes/cadastrarLivros.inc.php" method="POST" enctype="multipart/form-data">
-
             <line>
                 <inputLabel>
                     <label for="titulo"> Nome do livro: </label>
@@ -118,11 +118,13 @@
 
             <!-- Input para a imagem do livro -->
             <inputLabel>
-                <label for="arquivoUpload"> Imagem </label>
-                <input type="file" name="arquivoUpload">
+                <label for="arquivoUpload"> Imagem</label>
+                <box id="upload">
+                    <input type="file" name="arquivoUpload" style="width: 100%; height: 100%; opacity: 0;">
+                </box>
             </inputLabel>
 
-            <button type="submit" name="submit">
+            <button class="submit-btn" type="submit" name="submit">
                 Cadastrar Livro
             </button>
 

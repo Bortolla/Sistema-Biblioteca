@@ -20,7 +20,7 @@ body{
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
@@ -99,6 +99,7 @@ menu-user-acess{
 }
 
 .titulo {
+    padding-top: 2%;
     text-align: center;
     padding-bottom: 2%;
     font-size: 2rem;
@@ -120,4 +121,37 @@ menu-user-acess{
 
 .conteudovar{
     padding-top: 4%;
+}
+
+.emprestarlivro {
+    align-self: center;
+    /* background-color: white; */
+    padding: 3%;
+    border: 1px solid black;
+    margin-top: 1%;
+}
+.emprestarlivro > form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3%;
+}
+
+.titulo-emprestarlivro {
+    text-align: center;
+    padding-bottom: 4%;
+}
+
+.inputenviar {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-self: center;
+    padding: 13px 0;
+    background-color: var(--btncolor);
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 25%;    
+    font-size: 17px;
+    color: var(--btnlettercolor);
 }

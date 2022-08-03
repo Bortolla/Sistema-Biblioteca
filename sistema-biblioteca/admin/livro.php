@@ -67,15 +67,15 @@
                 #->THE BOOK, THIS BLOCK IS HIDDEN AND THE BLOCK WITH->
                 #->THE CONFIRMATION IS SHOWN
                 if (!isset($student_can_borrow) and !isset($student_can_return)){
-                    echo "<form action=".$_SERVER['PHP_SELF'].'?livro=' . $book_id . " method='post'>";
-                        echo "<label for='email'>Email do usuario:</label>";
+                    echo "<div class='emprestarlivro'><h2 class='titulo-emprestarlivro'>Empréstimo</h2><form action=".$_SERVER['PHP_SELF'].'?livro=' . $book_id . " method='post'>";
+                        echo "<label for='email'><span class='bold'>Email do usuario:</span></label>";
                         echo "<input type='email' name='student_email' id='email'>";
+                        echo "<label for='borrow'><span class='bold'>Emprestar:</span></label>";
                         echo "<input type='radio' name='choice' value='borrow' id ='borrow'>";
-                        echo "<label for='borrow'>Emprestar</label>";
+                        echo "<label for='return'><span class='bold'>Devolver:</span></label>";
                         echo "<input type='radio' name='choice' value='return' id='return'>";
-                        echo "<label for='return'>Devolver</label>";
-                        echo "<input type='submit' value='Enviar'>";
-                    echo "</form>";
+                        echo "<input type='submit' class='inputenviar' value='Enviar'>";
+                    echo "</form></div>";
                     if(isset($lending_returning_error)){echo $lending_returning_error;}
                     if(isset($lending_success)){echo $lending_success;}
                 }

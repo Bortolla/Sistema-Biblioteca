@@ -13,6 +13,7 @@
     --menuhover: #042929;
 
 }
+
 #tela_cadastro {
     margin: 0;
     padding: 0;
@@ -44,8 +45,8 @@
     padding: 2%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 600px;
-    height: 520px;
+    width: 45%;
+    height: 75vh;
     align-items: center;
     justify-content: center;
     background-color: var(--formulario);

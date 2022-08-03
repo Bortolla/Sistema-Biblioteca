@@ -101,8 +101,8 @@ menu-user-acess{
     padding: 2%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 600px;
-    height: 520px;
+    width: 60%;
+    height: 85vh;
     align-items: center;
     justify-content: center;
     background-color: var(--formulario);

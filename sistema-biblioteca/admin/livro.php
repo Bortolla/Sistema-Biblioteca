@@ -67,17 +67,17 @@
                 #->THE BOOK, THIS BLOCK IS HIDDEN AND THE BLOCK WITH->
                 #->THE CONFIRMATION IS SHOWN
                 if (!isset($student_can_borrow) and !isset($student_can_return)){
-                    echo "<div class='emprestarlivro'><h2 class='titulo-emprestarlivro'>Empréstimo</h2><form action=".$_SERVER['PHP_SELF'].'?livro=' . $book_id . " method='post'>";
-                        echo "<label for='email'><span class='bold'>Email do usuario:</span></label>";
+                    echo "<div class='emprestarlivro'><form action=".$_SERVER['PHP_SELF'].'?livro=' . $book_id . " method='post'>";
+                        echo "<h2 class='titulo-emprestarlivro'>Empréstimo</h2><label for='email'><span class='bold'>Email do usuario:</span></label>";
                         echo "<input type='email' name='student_email' id='email'>";
                         echo "<label for='borrow'><span class='bold'>Emprestar:</span></label>";
                         echo "<input type='radio' name='choice' value='borrow' id ='borrow'>";
                         echo "<label for='return'><span class='bold'>Devolver:</span></label>";
                         echo "<input type='radio' name='choice' value='return' id='return'>";
                         echo "<input type='submit' class='inputenviar' value='Enviar'>";
-                    echo "</form></div>";
                     if(isset($lending_returning_error)){echo $lending_returning_error;}
                     if(isset($lending_success)){echo $lending_success;}
+                    echo "</form>";
                 }
             ?>
             <div>
@@ -134,18 +134,18 @@
                 <div>
                     <?php
                         if ($book_borrowed > 0){
-                            echo "RETIRADO POR:";
+                            echo "<div class='retirado-info'><h1 class=titulo-retirarlivro>Informações da retirada</h1>";
                             echo "<br>";
                             while ($row = mysqli_fetch_assoc($result)){
-                                echo "Nome: ";
+                                echo "<div class='usuario-retirada'><span class='bold'>Nome:</span> ";
                                 echo $row['firstname'] . ' ' . $row['lastname'] . " ";
-                                echo "ID: ";
+                                echo "<br><span class='bold'>ID:</span> ";
                                 echo $row['id'] . " ";
-                                echo "Email: ";
+                                echo "<br><span class='bold'>Email:</span> ";
                                 echo $row['email'] . " ";
-                                echo "Retirada: ";
-                                echo "Devolucao: ";
-                                echo "<br>";
+                                echo "<br><span class='bold'>Retirada:</span> ";
+                                echo "<br><span class='bold'>Devolucao:</span> ";
+                                echo "<br></div>";
                             }
                         }
                     ?>

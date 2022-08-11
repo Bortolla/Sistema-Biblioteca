@@ -9,6 +9,7 @@
     --placeholder: black;
     --btncolor: #023535;
     --menubackground: #023535;
+    --btnhover: #042929;
     --btnlettercolor: rgb(218, 217, 217);
     --menuhover: #042929;
 
@@ -191,7 +192,29 @@ menu-user-acess{
     color: var(--btnlettercolor);
     margin-bottom: 2%;
 }
+
+.inputenviar:hover {
+    background-color: var(--btnhover);
+}
 .usuario-retirada {
     margin-bottom: 2%;
     border-bottom: 1px solid black;
+}
+
+#confirm-form input.confirm-button {
+    padding: 13px 0;
+    margin: 1%;
+    background-color: var(--btncolor);
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 40%;
+    font-size: 17px;
+    color: var(--btnlettercolor);
+    margin-bottom: 2%;
+}
+
+#confirm-form input.confirm-button:hover {
+    background-color: var(--btnhover);
 }

@@ -98,14 +98,15 @@
                                 </span> $book_title</p>";
                         
                         #CONFIRM LENDING A BOOK BUTTON
-                        echo "<form action=" . $_SERVER['PHP_SELF'] . "?livro=" . $book_id . " method='post'>";
+                        echo "<form id='confirm-form' action=" . $_SERVER['PHP_SELF'] . "?livro=" . $book_id . " method='post'>";
                             echo "<input type='hidden' value='$student_email' name='lending_confirmed'>";
-                            echo "<input type='submit' value='Emprestar'>";
-                        echo "</form>";
+                            echo "<input class='confirm-button' type='submit' value='Emprestar'>";
+
 
                         #CANCEL LENDING A BOOK BUTTON
                         echo "<a href='" . $_SERVER['PHP_SELF'] . '?livro=' . $book_id . "'" . 
-                                "><input type='button' value='Cancelar'></a>";
+                                "><input class='confirm-button' type='button' value='Cancelar'></a>";
+                                echo "</form>";
                     }
                     elseif (isset($student_can_return)){
 
@@ -120,15 +121,15 @@
                                 </span> $book_title</p>";
                         
                         #CONFIRM RETURNING A BOOK BUTTON
-                        echo "<form action=" . $_SERVER['PHP_SELF'] . "?livro=" . $book_id . " method='post'>";
+                        echo "<form id='confirm-form'action=" . $_SERVER['PHP_SELF'] . "?livro=" . $book_id . " method='post'>";
                             echo "<input type='hidden' value='$student_email' name='returning_confirmed'>";
-                            echo "<input type='submit' value='Devolver'>";
-                        echo "</form>";
+                            echo "<input class='confirm-button' type='submit' value='Devolver'>";
+                        
 
                         #CANCEL RETURNING A BOOK BUTTON
                         echo "<a href='" . $_SERVER['PHP_SELF'] . '?livro=' . $book_id . "'" . 
-                                "><input type='button' value='Cancelar'></a>";
-                        
+                                "><input class='confirm-button' type='button' value='Cancelar'></a>";
+                        echo "</form>";
                     }
                 ?>
                 <div>

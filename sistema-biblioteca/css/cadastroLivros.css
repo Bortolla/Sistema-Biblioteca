@@ -198,3 +198,8 @@ line label{
 .half-size{
     width: 95%;
 }
+#logout{
+    background-color: var(--msgerror);
+    padding: 15px;
+    border-radius: 3px;
+}

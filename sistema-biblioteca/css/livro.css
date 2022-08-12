@@ -218,3 +218,9 @@ menu-user-acess{
 #confirm-form input.confirm-button:hover {
     background-color: var(--btnhover);
 }
+
+#logout{
+    background-color: var(--msgerror);
+    padding: 15px;
+    border-radius: 3px;
+}

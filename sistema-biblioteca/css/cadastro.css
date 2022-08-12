@@ -160,3 +160,8 @@ input[type=text], input[type=email], input[type=tel], input[type=password] {
     margin-top: 15px;
     color: var(--preto);
 }
+#logout{
+    background-color: var(--msgerror);
+    padding: 15px;
+    border-radius: 3px;
+}

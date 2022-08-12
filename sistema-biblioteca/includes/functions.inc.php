@@ -53,7 +53,7 @@
     #UTILIZES PREPARED STATEMENTS TO MAKE THE MYSQLI REQUEST.
     #PARAMETERS ARE THE DB CONNECTION, EMAIL AND PASSWORD.
     function check_login($server_connection, $email, $password){
-        $sql = "SELECT type FROM account_info WHERE email=? and password=?";
+        $sql = "SELECT firstname, type FROM account_info WHERE email=? and password=?";
         $stmt = mysqli_stmt_init($server_connection);
         mysqli_stmt_prepare($stmt, $sql);
         mysqli_stmt_bind_param($stmt, 'ss', $email, $password);
@@ -66,7 +66,7 @@
             return False;
         }
         else{
-            return $row['type'];
+            return $row;
         }
     }
 

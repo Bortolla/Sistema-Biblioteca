@@ -9,6 +9,7 @@
             $_SESSION['logged'] = False;
             $_SESSION['email'] = False;
             $_SESSION['type'] = False;
+            $_SESSION['firstname'] = False;
 
             header('Location: ../index.php');
         }

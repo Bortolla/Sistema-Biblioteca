@@ -26,7 +26,7 @@
         else{
             #IF EMAIL AND PASSWORD DON'T MATCH THE FUNCTION CHECK_LOGIN ->
             #->RETURNED FALSE TO THE VARIABLE $TYPE
-            if (!$type = check_login($__db_connect, $_email, $_password)){ 
+            if (!$user_info = check_login($__db_connect, $_email, $_password)){ 
                 $login_error = "*Usuario e/ou senha incorreto(s)";
             }
             #ELSE MEANS THEY MATCH, AND THE FUNCTION CHECK_LOGIN RETURNED ->
@@ -34,12 +34,13 @@
             else{
                 $_SESSION['email'] = $_email;
                 $_SESSION['logged'] = True;
-                $_SESSION['type'] = $type;
+                $_SESSION['type'] = $user_info['type'];
+                $_SESSION['firstname'] = $user_info['firstname'];
                 
-                if ($type == 'user'){
+                if ($user_info['type'] == 'user'){
                     header('Location: user/index.php'); #REDIRECTS TO THE USER'S PATH IF THE ACCOUNT'S TYPE IS USER
                 }
-                elseif ($type == 'admin'){
+                elseif ($user_info['type'] == 'admin'){
                     header('Location: admin/index.php'); #REDIRECTS TO THE ADMIN'S PATH IF THE ACCOUNT'S TYPE IS ADMIN
                 }
             }

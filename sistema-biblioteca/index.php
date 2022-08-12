@@ -31,7 +31,7 @@
                         
                         <div id="senha-container">
                             <label for="senha">Senha</label>
-                            <input type="text" placeholder="Digite sua senha" name="password" id="senha" class="input-grupo">
+                            <input type="password" placeholder="Digite sua senha" name="password" id="senha" class="input-grupo">
                             <br>
                             <div><?php if(isset($login_error)){echo $login_error;}?></div>
                             <br>

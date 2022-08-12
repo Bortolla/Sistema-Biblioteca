@@ -17,38 +17,9 @@
 
 <body id="tela_cadastro">
     <section class="space"></section>
-    <section class="menu">
-            <menu-user-image>
-                <img src="imagens/user.png">
-            </menu-user-image>
-            <menu-user-name>
-                Nome do usuário
-                <menu-user-acess>
-                    Administrador <br>
-                    <?php
-                        
-                    ?>
-                <menu-user-acess>
-            </menu-user-name>
-            <menu-item>
-                <a href="index.php">Início</a>
-            </menu-item>
-            <menu-item>
-                <a href="./cadastrar.php">Cadastrar Aluno</a>
-            </menu-item>
-            <menu-item>
-                <a href="./cadastroLivros.php">Cadastrar Livro</a>
-            </menu-item>
-            <menu-item>
-                Item X
-            </menu-item>
-            <menu-item>
-                Item X
-            </menu-item>
-            <menu-item >
-                <a id="logout" href="<?php echo $_SERVER['PHP_SELF'].'?logout=1';?>"><b>Encerrar Sessao</b></a>
-            </menu-item>
-        </section>
+
+    <?php include '../includes/admin_menu.inc.php'; ?> <!-- ADMIN'S MENU -->
+    
     <div class="form">
         <h1 class="cadastro-titulo">Cadastro de Alunos</h1>
         <form class="form-cadastro" action="cadastrar.php" method="post"> <!-- Formulario de cadastro para acessar o sistema -->

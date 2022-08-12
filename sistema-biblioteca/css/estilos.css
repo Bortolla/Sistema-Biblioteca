@@ -98,6 +98,20 @@ input[type=text] {
     color: var(--preto);
     /* border-radius: 10px; */
 }
+input[type=password] {
+    all: unset;
+    outline: none;
+    width: 90%;
+    padding: 5px;
+    display: block;
+    /* border: 2px solid #2C2F33;
+    background: #f1f1f1; */
+    border-bottom: 2px solid var(--preto);
+    background: transparent;
+    margin-top: 15px;
+    color: var(--preto);
+    /* border-radius: 10px; */
+}
 
 #usuario::placeholder {
     color:var(--placeholder);
@@ -165,4 +179,9 @@ label {
         color: var(--placeholder);
         font-size: 12px;
     }
+}
+#logout{
+    background-color: var(--msgerror);
+    padding: 15px;
+    border-radius: 3px;
 }

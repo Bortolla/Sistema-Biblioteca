@@ -36,6 +36,7 @@
             $book_copies = $row['exemplares'];
             $book_borrowed = $row['retirados'];
             $book_img_type = $row['imagemtipo'];
+            ($book_copies > $book_borrowed ? $available = 'Sim' : $available = 'Não');
 
             #SETTING THE IMAGE PATH OF THE BOOK
             if ($book_img_type){

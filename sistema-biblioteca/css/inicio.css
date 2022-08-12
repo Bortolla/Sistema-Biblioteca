@@ -178,3 +178,8 @@ input[type="submit"]{
 #search:hover{
     opacity: 0.7;
 }
+#logout{
+    background-color: var(--msgerror);
+    padding: 15px;
+    border-radius: 3px;
+}

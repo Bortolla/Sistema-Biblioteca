@@ -42,6 +42,7 @@
                                 $sql_row = mysqli_fetch_array($result);
 
                                 if ($sql_row){
+                                    $return_date_array = returnDate($__db_connect, $book_id, $email);
                                     echo "<a href='livro.php?livro=" . $sql_row['id'] . "'>";
                                     echo "<book>";
                                         if($sql_row['imagemtipo']){
@@ -65,15 +66,28 @@
 
                                             echo "<book-info>";
                                                 echo $sql_row['autor'];
+                                            echo "</book-info>";
+
                                             echo "<book-info>";
+                                                echo "Emprestado em: " . $return_date_array['borrowed_date'];
+                                            echo "</book-info>";
+
+                                            echo "<book-info>";
+                                                echo "Devolver em: " . $return_date_array['return_date'];
+                                            echo "</book-info>";
+
+                                            echo "<book-info>";
+                                                echo "Atrasado: " . $return_date_array['pending'];
+                                            echo "</book-info>";
 
                                         echo "</book-description>";
 
                                     echo "</book>";
                                     echo "</a>";
                                 }
+                            }
                         echo "</linha>";
-                    }
+
                     echo "</books>";
                 }
                 ?>

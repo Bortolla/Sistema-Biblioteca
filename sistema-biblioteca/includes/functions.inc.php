@@ -87,3 +87,58 @@
             return False;
         }
     }
+
+    function returnDate($server_connection, $book_id, $student_email) {
+        $sql = "SELECT * FROM account_info WHERE email=?";
+        $stmt = mysqli_stmt_init($server_connection);
+        mysqli_stmt_prepare($stmt, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $student_email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        if (!$row = mysqli_fetch_assoc($result)) {
+            $returnData = array();
+            $returnData['borrowed_date'] = false;
+            $returnData['return_date'] = false;
+            $returnData['pending'] = false;
+            return $returnData;
+        }
+        elseif ($row['book1'] == $book_id) {
+            $borrowed_date = $row['time1'];
+            $return_time = $row['time1'] + 604800;
+        }
+        elseif($row['book2'] == $book_id) {
+            $borrowed_date = $row['time2'];
+            $return_time = $row['time2'] + 604800;
+        }
+        elseif($row['book3'] == $book_id) {
+            $borrowed_date = $row['time3'];
+            $return_time = $row['time3'] + 604800;
+        }
+        else {
+            $returnData = array();
+            $returnData['borrowed_date'] = false;
+            $returnData['return_date'] = false;
+            $returnData['pending'] = false;
+            return $returnData;
+        }
+
+        if (date('w', $return_time) == 6) {
+            $return_time = $return_time + 172800;
+        }
+        elseif (date('w', $return_time) == 7) {
+            $return_time = $return_time + 86400;
+        }
+
+        if (time() > $return_time) {
+            $pending = 'Sim';
+        }
+        else {
+            $pending = 'Não';
+        }
+        $returnData = array();
+        $returnData['borrowed_date'] = date("d/m/Y", $borrowed_date);
+        $returnData['return_date'] = date("d/m/Y", $return_time);
+        $returnData['pending'] = $pending;
+
+        return $returnData;
+    }

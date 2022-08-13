@@ -109,6 +109,7 @@
                             echo "<div class='retirado-info'><h1 class=titulo-retirarlivro>Informações da retirada</h1>";
                             echo "<br>";
                             while ($row = mysqli_fetch_assoc($result)){
+                                $return_date_array = returnDate($__db_connect, $book_id, $row['email']);
                                 echo "<div class='usuario-retirada'><span class='bold'>Nome:</span> ";
                                 echo $row['firstname'] . ' ' . $row['lastname'] . " ";
                                 echo "<br><span class='bold'>ID:</span> ";
@@ -116,7 +117,11 @@
                                 echo "<br><span class='bold'>Email:</span> ";
                                 echo $row['email'] . " ";
                                 echo "<br><span class='bold'>Retirada:</span> ";
+                                echo $return_date_array['borrowed_date'];
                                 echo "<br><span class='bold'>Devolucao:</span> ";
+                                echo $return_date_array['return_date'];
+                                echo "<br><span class='bold'>Atrasado:</span> ";
+                                echo $return_date_array['pending'];
                                 echo "<br></div>";
                             }
                         }

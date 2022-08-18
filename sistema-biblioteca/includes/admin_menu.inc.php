@@ -1,4 +1,8 @@
 <section class="menu">
+<div class="menu-mobile-close">
+        <div class="line1"></div>
+        <div class="line2"></div>
+    </div>
     <menu-user-image>
         <img src="../imagens/user.png">
     </menu-user-image>

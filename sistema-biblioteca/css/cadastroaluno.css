@@ -13,7 +13,10 @@
     --menuhover: #042929;
 
 }
-
+body {
+    margin: 0;
+    padding: 0;
+}
 #tela_cadastro {
     margin: 0;
     padding: 0;
@@ -33,7 +36,7 @@
 
 
 .form {
-    width: 100%;
+    width: 98%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,4 +111,47 @@ input[type=text], input[type=email], input[type=tel], input[type=password] {
     background-color: var(--msgerror);
     padding: 15px;
     border-radius: 3px;
+}
+
+@media (max-width: 836px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .form {
+        width: 100%;
+        /* position: relative; */
+    }
+    .form-cadastro {
+        width: 90%;
+        height: 100%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        /* padding: 5% 0; */
+        border-radius: 10px;
+
+    }
+    .cadastro-titulo {
+        font-size: 1.8em;
+    }
+    .container {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        /* margin-left: 10%; */
+    }
+    .container label { 
+        margin-bottom: 2px;
+    }
+
+    .container ::placeholder {
+        font-size: 12px;
+    }
+    .cadastro-titulo {
+        font-weight: 500;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        justify-self: center;
+        font-size: 28px;
+    }
+    
 }

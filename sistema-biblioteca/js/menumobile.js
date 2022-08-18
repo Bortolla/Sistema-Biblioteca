@@ -22,10 +22,10 @@ class MobileNavbar {
       }
       return this;
     }
-  }
+}
   
 const mobileNavbar = new MobileNavbar(
-".menu-mobile",
-".menu",
+    ".menu-mobile",
+    ".menu",
 );
 mobileNavbar.init();

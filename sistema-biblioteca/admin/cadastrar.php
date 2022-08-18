@@ -74,6 +74,6 @@
         
     </div>
 
-    <script src="../js/menumob"></script>
+    <script src="../js/menumobile.js"></script>
 </body>
 </html>

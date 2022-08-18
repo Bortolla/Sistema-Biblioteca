@@ -16,7 +16,11 @@
     </head>
     <body>
         <section class="space"></section>
-
+        <div class="menu-mobile">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
         <?php include '../includes/user_menu.inc.php'; ?> <!-- USER'S MENU -->
         
         <div class="infolivro">
@@ -32,3 +36,7 @@
                 echo "<p class='conteudo'><span class='bold'>Exemplares:</span> $book_copies</p>";
                 echo "<p class='conteudo'><span class='bold'>Disponível:</span> $available</p></div></div>";
             ?>
+        </div>
+        <script src="../js/menumobile.js"></script> 
+    </body>
+</html>

@@ -21,6 +21,12 @@
         
         <?php include '../includes/user_menu.inc.php'; ?> <!-- USER'S MENU -->
         
+        <div class="menu-mobile">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+
         <section class="content">
             <div id="search-section">
                 <form>
@@ -31,5 +37,6 @@
             <?php include '../includes/show_books_part_2.inc.php'; ?>
             
         </section>
+        <script src="../js/menumobile.js"></script>
     </body>
 </html>

@@ -14,7 +14,7 @@
     ($all_books_fields['book3'] != null ? $my_books[] = $all_books_fields['book3'] : false);
     
     if (!$my_books) {
-        $no_books_to_show = 'Você não possui livros emprestados';
+        $no_books_to_show = 'Você não possui livros emprestados <br> <img src="../imagens/logos.png"/>';
     }
     else {
         $books_to_show = true;

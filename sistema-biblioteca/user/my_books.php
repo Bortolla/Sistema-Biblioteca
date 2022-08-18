@@ -19,11 +19,17 @@
     <body>
         <section class="space"></section>
 
+        <div class="menu-mobile">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+
         <?php include '../includes/user_menu.inc.php'; ?> <!-- USER'S MENU -->
         
         <section class="content">
-            <div>
-                Livros Comigo
+            <div class="content-container">
+                <h1 class="livros-alugados">Livros Comigo</h1>
                 <br>
                 <?php 
                 if (isset($no_books_to_show)){
@@ -95,5 +101,6 @@
             </div>
             
         </section>
+        <script src="../js/menumobile.js"></script>
     </body>
 </html>

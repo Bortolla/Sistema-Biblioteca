@@ -236,19 +236,6 @@ menu-user-acess{
     .space {
         display: none;
     }
-    .form {
-        width: 100%;
-        /* position: relative; */
-    }
-    .form-cadastro {
-        width: 80%;
-    }
-    .cadastro-titulo {
-        font-size: 1.8em;
-    }
-    #firstname, #lastname, #email, #phone, #class, #id, #password ::placeholder {
-        font-size: 12px;
-    }
     .menu-mobile {
         display: block;
         position: absolute;

@@ -19,6 +19,12 @@
     <body>
         <section class="space"></section>
 
+        <div class="menu-mobile">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+
         <?php include '../includes/admin_menu.inc.php'; ?> <!-- ADMIN'S MENU -->
 
         <section class="content">
@@ -31,5 +37,6 @@
             <?php include '../includes/show_books_part_2.inc.php'; ?>
             
         </section>
+        <script src="../js/menumobile.js"></script>
     </body>
 </html>

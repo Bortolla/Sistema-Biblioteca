@@ -41,6 +41,12 @@
     ?>
     <section class="space"></section>
 
+    <div class="menu-mobile">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    
     <?php include '../includes/admin_menu.inc.php'; ?> <!-- ADMIN'S MENU -->
     
     <section id="content">
@@ -101,6 +107,7 @@
 
         </form>
     </section>
+    <script src="../js/menumobile.js"></script>
 </body>
 
 </html>

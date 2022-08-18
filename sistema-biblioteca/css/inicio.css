@@ -87,7 +87,7 @@ menu-user-acess{
 .content{
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
     height: 100%;
     justify-content: space-evenly;
     align-items: center;
@@ -97,8 +97,9 @@ menu-user-acess{
 books{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 50;
     justify-content: space-evenly;
+    margin-left: 10%;
 }
 linha{
     display: flex;
@@ -109,7 +110,7 @@ linha{
 book{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center;
     padding: 10px;
@@ -192,10 +193,52 @@ input[type="submit"]{
     display: none;
     cursor: pointer;
 }
-@media (max-width: 836px) {
+@media (max-width: 1013px) {
     body {
         overflow-x: hidden;
     }
+
+    books{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        justify-content: space-evenly;
+        margin-left: 0;
+    }
+    linha{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    book{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    book img{
+        width: 100%;
+        height: 15rem;
+        padding-bottom: 10px;
+    }
+
+    book-description{
+        display: flex;
+        flex-direction: column;
+        color: black;
+    }
+
+    book-info{
+        margin-bottom: 25px;
+    }
+
     .space {
         display: none;
     }

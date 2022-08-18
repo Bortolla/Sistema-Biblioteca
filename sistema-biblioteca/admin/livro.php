@@ -17,6 +17,11 @@
     <body>
         <section class="space"></section>
 
+        <div class="menu-mobile">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
         <?php include '../includes/admin_menu.inc.php'; ?> <!-- ADMIN'S MENU -->
         
         <div class="infolivro">
@@ -130,6 +135,6 @@
                 
             </div>
         </div>
-
+        <script src="../js/menumobile.js"></script>
     </body>
 </html>

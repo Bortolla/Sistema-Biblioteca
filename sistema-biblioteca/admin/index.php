@@ -30,7 +30,7 @@
         <section class="content">
             <div id="search-section">
                 <form>
-                    <input type="text" placeholder="Digite aqui o nome da organização" id="input"><input type="submit" id="search" value="&nbsp;">
+                    <input type="text" placeholder="Digite aqui o nome do livro" id="input"><input type="submit" id="search" value="&nbsp;">
                 </form>
             </div>
 

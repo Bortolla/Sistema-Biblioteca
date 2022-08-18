@@ -200,8 +200,9 @@ input[type=text], input[type=email], input[type=tel], input[type=password] {
     .menu-mobile div {
         width: 32px;
         height: 2px;
-        background-color: #011b1b;
+        background-color: var(--menubackground);
         margin: 8px;
+        transition: 0.3s;
     }
     .menu {
         position: absolute;
@@ -214,4 +215,18 @@ input[type=text], input[type=email], input[type=tel], input[type=password] {
 
 .menu.active {
     transform: translateX(0);
+}
+
+.menu-mobile.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+    background-color: var(--background);
+}
+
+.menu-mobile.active .line2 {
+    opacity: 0;
+}
+
+.menu-mobile.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+    background-color: var(--background);
 }

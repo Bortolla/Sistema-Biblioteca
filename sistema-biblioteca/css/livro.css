@@ -124,6 +124,8 @@ menu-user-acess{
     padding-top: 4%;
 }
 
+/*       EMPRESTAR LIVRO        */
+
 .emprestarlivro {
     display: flex;
     flex-direction: row;
@@ -141,6 +143,7 @@ menu-user-acess{
     gap: 3%;
     width: 60%;
     padding: 3%;
+    padding-bottom: 8%;
     border: 1px solid black;
     align-items: flex-start;
 }
@@ -181,13 +184,13 @@ menu-user-acess{
     grid-column-start: 1;
     grid-column-end: 3;
     justify-self: center;
-    padding: 13px 0;
+    padding: 5%;
     background-color: var(--btncolor);
     border: none;
     font-weight: bold;
     border-radius: 5px;
     margin-top: 15px;
-    width: 25%;    
+    width: 25%;
     font-size: 17px;
     color: var(--btnlettercolor);
     margin-bottom: 2%;
@@ -231,7 +234,7 @@ menu-user-acess{
 }
 @media (max-width: 836px) {
     body {
-        overflow-x: hidden;
+        overflow-X: hidden;
     }
     .space {
         display: none;
@@ -254,6 +257,59 @@ menu-user-acess{
         height: 100vh;
         transform: translateX(100%);
         transition: transform 0.3s ease-in;
+    }
+    .infolivro {
+        width: 100%;
+    }
+    .titulo {
+        padding-top: 6%;
+    }
+    .ladinho {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+    .ladinho img {
+        align-self: center;
+    }
+    .emprestarlivro {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        margin-top: 1%;
+        /* background-color: white; */
+        /* margin-bottom: 5px; */
+        /* padding-bottom: 1%; */
+        width: 90%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    #confirm-form input.confirm-button {
+    }
+
+    .inputenviar {
+        width: 50%;
+        height: 50%%;
+    }
+    .titulo-emprestarlivro {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        text-align: center;
+        padding-bottom: 4%;
+        font-size: 18px;
+    }
+    .emprestarlivro {
+        flex-direction: column;
+    }
+    .emprestarlivro form {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 15%;
+    }
+    .retirado-info {
+        margin-top: 2%;
     }
 }
 

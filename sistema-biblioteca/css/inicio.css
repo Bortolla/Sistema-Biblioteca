@@ -127,6 +127,10 @@ book img{
     height: 15rem;
     padding-bottom: 10px;
 }
+
+.pagination {
+    color: black;
+}
 /* input{
     all: unset;
     width: 80%;

@@ -36,6 +36,7 @@
 
             <?php include '../includes/show_books_part_2.inc.php'; ?>
             
+            <div="pagination"></div>
         </section>
         <script src="../js/menumobile.js"></script>
     </body>
